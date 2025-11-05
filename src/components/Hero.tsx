@@ -9,7 +9,7 @@ const isPlatformAllowedForAnimation = () => {
     // Safety check for Server-Side Rendering (SSR)
     return false; 
   }
-  
+  //
   const userAgent = window.navigator.userAgent;
   
   // Check for Windows
