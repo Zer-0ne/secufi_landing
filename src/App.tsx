@@ -10,7 +10,7 @@ function App() {
       <Hero />
       <Features />
       <HowItWorks />
-      <ForAdvisors />
+      <ForAdvisors /> 
       <CTA />
     </div>
   );

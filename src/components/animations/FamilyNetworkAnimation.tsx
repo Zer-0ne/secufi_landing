@@ -568,7 +568,7 @@ const FamilyNetworkAnimation = () => {
   return (
     <canvas
       ref={canvasRef}
-      className="absolute inset-0 w-full h-full cursor-pointer"
+      className="absolute inset-0 w-full h-lvh cursor-pointer"
       style={{ opacity: 0.75 }}
     />
   );

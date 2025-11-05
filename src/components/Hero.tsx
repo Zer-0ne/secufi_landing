@@ -3,12 +3,37 @@ import { ArrowRight, Sparkles } from 'lucide-react';
 import FamilyNetworkAnimation from './animations/FamilyNetworkAnimation';
 import ProgressRing from './animations/ProgressRing';
 
+// Utility function to check for Windows OR Android OS
+const isPlatformAllowedForAnimation = () => {
+  if (typeof window === 'undefined') {
+    // Safety check for Server-Side Rendering (SSR)
+    return false; 
+  }
+  
+  const userAgent = window.navigator.userAgent;
+  
+  // Check for Windows
+  const isWindows = userAgent.indexOf("Win") !== -1;
+  
+  // Check for Android (includes Android phones and tablets)
+  const isAndroid = userAgent.indexOf("Android") !== -1;
+  
+  return isWindows || isAndroid;
+};
+
 const Hero = () => {
   const [phase, setPhase] = useState(0);
   const [isVisible, setIsVisible] = useState(false);
+  
+  // 1. State to control animation visibility
+  const [showAnimation, setShowAnimation] = useState(false); 
 
   useEffect(() => {
+    // Client-side execution
     setIsVisible(true);
+    
+    // 2. Set animation visibility based on the allowed platforms (Windows or Android)
+    setShowAnimation(isPlatformAllowedForAnimation()); 
 
     const phaseTimings = [0, 2500, 5000, 7500];
     const timers = phaseTimings.map((delay, index) =>
@@ -19,8 +44,9 @@ const Hero = () => {
   }, []);
 
   return (
-    <section className="relative min-h-screen flex items-center justify-center overflow-hidden bg-gradient-to-br from-[#16223e] via-[#232e4d] to-[#1a2540]">
+    <div className="relative min-h-lvh flex items-center justify-center overflow-hidden bg-gradient-to-br from-[#16223e] via-[#232e4d] to-[#1a2540]">
       <div className="absolute inset-0 opacity-20">
+        {/* Blob background animations */}
         <div
           className="absolute top-1/4 left-1/4 w-[500px] h-[500px] bg-gradient-to-r from-[#10d8c4] to-[#43e97b] rounded-full blur-[140px]"
           style={{ animation: 'blobFloat 12s ease-in-out infinite' }}
@@ -39,9 +65,12 @@ const Hero = () => {
         />
       </div>
 
-      <div className="absolute inset-0 flex items-center justify-center pointer-events-none">
-        <FamilyNetworkAnimation />
-      </div>
+      {/* Conditional Rendering: Only show animation if showAnimation is true (Windows or Android) */}
+      {showAnimation && (
+        <div className="absolute inset-0 flex items-center justify-center pointer-events-none">
+          <FamilyNetworkAnimation />
+        </div> 
+      )}
 
       <div className="relative z-20 w-full max-w-7xl mx-auto px-6 py-16">
         <div className="grid lg:grid-cols-2 gap-12 items-center">
@@ -50,9 +79,14 @@ const Hero = () => {
               isVisible ? 'opacity-100 translate-x-0' : 'opacity-0 -translate-x-10'
             }`}
           >
-            <div className="inline-flex items-center gap-2 px-5 py-2.5 glass-card glass-card-hover rounded-full mb-8 border border-white/20">
-              <Sparkles className="w-4 h-4 text-[#10d8c4] animate-pulse" />
-              <span className="text-sm font-medium text-white/90">Powered by AI · Consent-first</span>
+            <div className="inline-flex items-center gap-2 px-4 py-2.5 glass-card glass-card-hover rounded-full mb-8 border border-white/20">
+              <img src="./Images/logo.jpeg" alt="logo" className='aspect-square h-24 rounded-full'/> 	 	 	 	 
+              <span>
+                <span className="block bg-gradient-to-r from-[#10d8c4] via-[#43e97b] to-[#ffab40] bg-clip-text text-transparent bg-[length:200%_auto] animate-gradient text-5xl font-bold">
+                  SecuFi
+                </span>
+                <span className="text-sm font-medium text-white/90">Powered by AI · Consent-first</span>
+              </span> 	 	 	 	 
             </div>
 
             <h1 className="text-5xl md:text-6xl lg:text-7xl font-bold mb-6 leading-tight">
@@ -143,7 +177,7 @@ const Hero = () => {
                 <div className="flex items-start gap-4">
                   <div className="w-12 h-12 rounded-xl bg-gradient-to-br from-[#3b82f6] to-[#43e97b] flex items-center justify-center flex-shrink-0 shadow-lg" style={{ boxShadow: '0 0 20px rgba(59, 130, 246, 0.3)' }}>
                     <svg className="w-6 h-6 text-white" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M12 8c-1.657 0-3 .895-3 2s1.343 2 3 2 3 .895 3 2-1.343 2-3 2m0-8c1.11 0 2.08.402 2.599 1M12 8V7m0 1v8m0 0v1m0-1c-1.11 0-2.08-.402-2.599-1M21 12a9 9 0 11-18 0 9 9 0 0118 0z" />
+                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M12 8c-1.657 0-3 .895-3 2s1.343 2 3 2 3 .895 3 2-1.343 2-3 2m0-8c1.11 0 2.08-.402 2.599 1M12 8V7m0 1v8m0 0v1m0-1c-1.11 0-2.08-.402-2.599-1M21 12a9 9 0 11-18 0 9 9 0 0118 0z" />
                     </svg>
                   </div>
                   <div className="flex-1">
@@ -195,11 +229,12 @@ const Hero = () => {
             </div>
           </div>
         </div>
-      </div>
+      </div> 
 
       <ProgressRing />
 
       <style>{`
+        /* Existing CSS for animations */
         @keyframes gradient {
           0% { background-position: 0% 50%; }
           50% { background-position: 100% 50%; }
@@ -215,7 +250,7 @@ const Hero = () => {
           66% { transform: translate(-30px, 30px) scale(0.9); }
         }
       `}</style>
-    </section>
+    </div>
   );
 };
 
