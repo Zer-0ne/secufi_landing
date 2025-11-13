@@ -1,6 +1,6 @@
 import { useEffect, useRef, useState } from 'react';
 import { ArrowRight, Sparkles, Shield, Scan, Network, CheckCircle, Lock, FileText } from 'lucide-react';
-
+import {useNavigate} from 'react-router-dom'
 const steps = [
   {
     number: '01',
@@ -50,6 +50,7 @@ const steps = [
 ];
 
 const HowItWorks = () => {
+  const navigate=useNavigate();
   const [activeStep, setActiveStep] = useState(0);
   const stepRefs = useRef<(HTMLDivElement | null)[]>([]);
 
@@ -380,7 +381,7 @@ const HowItWorks = () => {
         </div>
 
         <div className="text-center mt-20">
-          <button className="group px-10 py-5 bg-gradient-to-r from-[#43e97b] to-[#009966] rounded-full font-semibold text-lg text-white transition-all duration-300 transform hover:scale-105 shadow-xl inline-flex items-center gap-3">
+          <button onClick={()=>navigate("/contact")}  className="group px-10 py-5 bg-gradient-to-r from-[#43e97b] to-[#009966] rounded-full font-semibold text-lg text-white transition-all duration-300 transform hover:scale-105 shadow-xl inline-flex items-center gap-3">
             Get Started Now
             <ArrowRight className="w-5 h-5 group-hover:translate-x-2 transition-transform" />
           </button>

@@ -1,6 +1,10 @@
 import { ArrowRight, Shield, CheckCircle, Zap } from 'lucide-react';
+import {useNavigate} from 'react-router-dom'
+
 
 const CTA = () => {
+    const navigate=useNavigate();
+
   return (
     <section className="relative py-32 px-6 bg-gradient-to-b from-teal-50 to-white overflow-hidden">
       <div className="absolute inset-0">
@@ -31,11 +35,11 @@ const CTA = () => {
             </p>
 
             <div className="flex flex-col sm:flex-row gap-4 justify-center mb-12">
-              <button className="group px-10 py-5 bg-gradient-to-r from-teal-600 to-blue-600 text-white rounded-full font-semibold text-lg hover:shadow-xl transition-all duration-300 transform hover:scale-105 inline-flex items-center justify-center gap-3">
+              <button onClick={()=>navigate("/contact")}   className="group px-10 py-5 bg-gradient-to-r from-teal-600 to-blue-600 text-white rounded-full font-semibold text-lg hover:shadow-xl transition-all duration-300 transform hover:scale-105 inline-flex items-center justify-center gap-3">
                 Start Free Trial
                 <ArrowRight className="w-5 h-5 group-hover:translate-x-2 transition-transform" />
               </button>
-              <button className="px-10 py-5 bg-blue-50 border border-blue-200 text-blue-700 rounded-full font-semibold text-lg hover:bg-blue-100 hover:border-blue-300 transition-all duration-300 inline-flex items-center justify-center gap-3">
+              <button onClick={()=>navigate("/contact")}   className="px-10 py-5 bg-blue-50 border border-blue-200 text-blue-700 rounded-full font-semibold text-lg hover:bg-blue-100 hover:border-blue-300 transition-all duration-300 inline-flex items-center justify-center gap-3">
                 Schedule Demo
               </button>
             </div>

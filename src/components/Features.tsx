@@ -1,5 +1,7 @@
 import { FileText, Search, Shield, BarChart3, Users, CheckCircle } from 'lucide-react';
 import { useEffect, useRef, useState } from 'react';
+import {useNavigate} from 'react-router-dom'
+
 
 const features = [
   {
@@ -53,6 +55,8 @@ const features = [
 ];
 
 const Features = () => {
+    const navigate=useNavigate();
+
   const [visibleCards, setVisibleCards] = useState<boolean[]>(new Array(features.length).fill(false));
   const [headerVisible, setHeaderVisible] = useState(false);
   const [animatedText, setAnimatedText] = useState('');
@@ -289,7 +293,7 @@ const Features = () => {
 
         <div className="mt-20 text-center">
           <div className="inline-flex flex-col sm:flex-row gap-4">
-            <button className="group relative px-10 py-5 bg-gradient-to-r from-[#10d8c4] to-[#7467ef] rounded-full font-semibold text-lg text-white overflow-hidden transition-all duration-300 transform hover:scale-105 shadow-xl">
+            <button onClick={()=>navigate("/contact")}   className="group relative px-10 py-5 bg-gradient-to-r from-[#10d8c4] to-[#7467ef] rounded-full font-semibold text-lg text-white overflow-hidden transition-all duration-300 transform hover:scale-105 shadow-xl">
               <span className="relative z-10 flex items-center justify-center gap-2">
                 Explore features
                 <svg className="w-5 h-5 group-hover:translate-x-1 transition-transform" fill="none" viewBox="0 0 24 24" stroke="currentColor">
@@ -299,7 +303,7 @@ const Features = () => {
               <div className="absolute inset-0 bg-gradient-to-r from-[#7467ef] to-[#10d8c4] opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
             </button>
 
-            <button className="px-10 py-5 glass-card glass-card-hover rounded-full font-semibold text-lg text-white border-white/20 shadow-xl">
+            <button onClick={()=>navigate("/contact")}   className="px-10 py-5 glass-card glass-card-hover rounded-full font-semibold text-lg text-white border-white/20 shadow-xl">
               Schedule a demo
             </button>
           </div>

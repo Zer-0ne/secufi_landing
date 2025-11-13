@@ -2,6 +2,7 @@ import { useEffect, useState } from 'react';
 import { ArrowRight, Sparkles } from 'lucide-react';
 import FamilyNetworkAnimation from './animations/FamilyNetworkAnimation';
 import ProgressRing from './animations/ProgressRing';
+import {useNavigate} from 'react-router-dom'
 
 // Utility function to check for Windows OR Android OS
 const isPlatformAllowedForAnimation = () => {
@@ -24,6 +25,7 @@ const isPlatformAllowedForAnimation = () => {
 const Hero = () => {
   const [phase, setPhase] = useState(0);
   const [isVisible, setIsVisible] = useState(false);
+  const navigate=useNavigate();
   
   // 1. State to control animation visibility
   const [showAnimation, setShowAnimation] = useState(false); 
@@ -85,14 +87,13 @@ const Hero = () => {
                 <span className="block bg-gradient-to-r from-[#10d8c4] via-[#43e97b] to-[#ffab40] bg-clip-text text-transparent bg-[length:200%_auto] animate-gradient text-5xl font-bold">
                   SecuFi
                 </span>
-                <span className="text-sm font-medium text-white/90">Powered by AI · Consent-first</span>
               </span> 	 	 	 	 
             </div>
 
             <h1 className="text-5xl md:text-6xl lg:text-7xl font-bold mb-6 leading-tight">
-              <span className="block text-white mb-2">Your Family's</span>
+              <span className="block text-white mb-2">Secure, Organised, and claim read</span>
               <span className="block bg-gradient-to-r from-[#10d8c4] via-[#43e97b] to-[#ffab40] bg-clip-text text-transparent bg-[length:200%_auto] animate-gradient">
-                Net-Worth OS
+                together as a family
               </span>
             </h1>
 
@@ -101,14 +102,14 @@ const Hero = () => {
             </p>
 
             <div className="flex flex-col sm:flex-row gap-4 mb-12">
-              <button className="group relative px-10 py-5 bg-gradient-to-r from-[#43e97b] to-[#009966] rounded-full font-semibold text-lg text-white overflow-hidden transition-all duration-300 transform hover:scale-105 flex items-center justify-center gap-2 glow-green shadow-xl">
+              <button onClick={()=>navigate("/contact")} className="group relative px-10 py-5 bg-gradient-to-r from-[#43e97b] to-[#009966] rounded-full font-semibold text-lg text-white overflow-hidden transition-all duration-300 transform hover:scale-105 flex items-center justify-center gap-2 glow-green shadow-xl">
                 <span className="relative z-10 flex items-center gap-2">
                   Start Free (≈5 min)
                   <ArrowRight className="w-5 h-5 group-hover:translate-x-1 transition-transform" />
                 </span>
                 <div className="absolute inset-0 bg-gradient-to-r from-[#009966] to-[#43e97b] opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
               </button>
-              <button className="px-10 py-5 glass-card glass-card-hover rounded-full font-semibold text-lg text-white border-white/20 shadow-xl">
+              <button onClick={()=>navigate("/contact")}  className="px-10 py-5 glass-card glass-card-hover rounded-full font-semibold text-lg text-white border-white/20 shadow-xl">
                 Watch Demo
               </button>
             </div>
