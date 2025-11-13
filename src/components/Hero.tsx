@@ -90,9 +90,9 @@ const Hero = () => {
               </span> 	 	 	 	 
             </div>
 
-            <h1 className="text-5xl md:text-6xl lg:text-7xl font-bold mb-6 leading-tight">
-              <span className="block text-white mb-2">Secure, Organised, and claim read</span>
-              <span className="block bg-gradient-to-r from-[#10d8c4] via-[#43e97b] to-[#ffab40] bg-clip-text text-transparent bg-[length:200%_auto] animate-gradient">
+            <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold mb-6 leading-tight">
+              <span className="block text-white mb-2">Secure, organized and claim ready</span>
+              <span className="block bg-gradient-to-r from-[#10d8c4] via-[#43e97b] to-[#ffab40] bg-clip-text text-transparent bg-[length:200%_auto] animate-gradient pb-4">
                 together as a family
               </span>
             </h1>
