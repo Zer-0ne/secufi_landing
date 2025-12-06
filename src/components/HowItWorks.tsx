@@ -1,56 +1,70 @@
-import { useEffect, useRef, useState } from 'react';
-import { ArrowRight, Sparkles, Shield, Scan, Network, CheckCircle, Lock, FileText } from 'lucide-react';
-import {useNavigate} from 'react-router-dom'
+import { useEffect, useRef, useState } from "react";
+import {
+  ArrowRight,
+  Sparkles,
+  Shield,
+  Scan,
+  Network,
+  CheckCircle,
+  Lock,
+  FileText,
+} from "lucide-react";
+import { useNavigate } from "react-router-dom";
 const steps = [
   {
-    number: '01',
-    title: 'Create Your Will',
-    description: 'Answer simple questions. Our AI creates a legally valid will and maps your family structure.',
-    highlight: '5 minutes',
+    number: "01",
+    title: "Create Your Will",
+    description:
+      "Answer simple questions. Our AI creates a legally valid will and maps your family structure.",
+    highlight: "5 minutes",
     icon: FileText,
-    color: 'from-[#ffab40] to-[#ff784b]',
-    glowColor: 'rgba(255, 171, 64, 0.3)',
+    color: "from-[#ffab40] to-[#ff784b]",
+    glowColor: "rgba(255, 171, 64, 0.3)",
   },
   {
-    number: '02',
-    title: 'Connect & Consent',
-    description: 'Grant access to email and SMS. Our AI scans for bank accounts, insurance policies, and investments.',
-    highlight: 'Auto-discovery',
+    number: "02",
+    title: "Connect & Consent",
+    description:
+      "Grant access to email and SMS. Our AI scans for bank accounts, insurance policies, and investments.",
+    highlight: "Auto-discovery",
     icon: Scan,
-    color: 'from-[#43e97b] to-[#009966]',
-    glowColor: 'rgba(67, 233, 123, 0.3)',
+    color: "from-[#43e97b] to-[#009966]",
+    glowColor: "rgba(67, 233, 123, 0.3)",
   },
   {
-    number: '03',
-    title: 'Review Your Graph',
-    description: 'See all your assets, nominees, and family relationships unified in one clean dashboard.',
-    highlight: 'Complete view',
+    number: "03",
+    title: "Review Your Graph",
+    description:
+      "See all your assets, nominees, and family relationships unified in one clean dashboard.",
+    highlight: "Complete view",
     icon: Network,
-    color: 'from-[#10d8c4] to-[#7467ef]',
-    glowColor: 'rgba(16, 216, 196, 0.3)',
+    color: "from-[#10d8c4] to-[#7467ef]",
+    glowColor: "rgba(16, 216, 196, 0.3)",
   },
   {
-    number: '04',
-    title: 'Fix & Optimize',
-    description: 'Get alerts for nominee gaps, KYC issues, or compliance problems. Fix them with guided playbooks.',
-    highlight: 'Stay compliant',
+    number: "04",
+    title: "Fix & Optimize",
+    description:
+      "Get alerts for nominee gaps, KYC issues, or compliance problems. Fix them with guided playbooks.",
+    highlight: "Stay compliant",
     icon: CheckCircle,
-    color: 'from-[#7467ef] to-[#3b82f6]',
-    glowColor: 'rgba(116, 103, 239, 0.3)',
+    color: "from-[#7467ef] to-[#3b82f6]",
+    glowColor: "rgba(116, 103, 239, 0.3)",
   },
   {
-    number: '05',
-    title: 'Stay Protected',
-    description: 'Access your Tax Pack, Claims Kit, and succession documents anytime. Share with advisors securely.',
-    highlight: 'Always ready',
+    number: "05",
+    title: "Stay Protected",
+    description:
+      "Access your Tax Pack, Claims Kit, and succession documents anytime. Share with advisors securely.",
+    highlight: "Always ready",
     icon: Shield,
-    color: 'from-[#3b82f6] to-[#10d8c4]',
-    glowColor: 'rgba(59, 130, 246, 0.3)',
+    color: "from-[#3b82f6] to-[#10d8c4]",
+    glowColor: "rgba(59, 130, 246, 0.3)",
   },
 ];
 
 const HowItWorks = () => {
-  const navigate=useNavigate();
+  const navigate = useNavigate();
   const [activeStep, setActiveStep] = useState(0);
   const stepRefs = useRef<(HTMLDivElement | null)[]>([]);
 
@@ -104,7 +118,10 @@ const HowItWorks = () => {
           <div className="w-full h-full flex flex-col items-center justify-center animate-fadeIn">
             <div className="relative mb-8">
               <div className="absolute inset-0 flex items-center justify-center">
-                <div className="w-40 h-40 border-4 border-[#43e97b]/30 border-t-[#43e97b] rounded-full animate-spin" style={{ animationDuration: '2s' }} />
+                <div
+                  className="w-40 h-40 border-4 border-[#43e97b]/30 border-t-[#43e97b] rounded-full animate-spin"
+                  style={{ animationDuration: "2s" }}
+                />
               </div>
               <div className="relative grid grid-cols-3 gap-4 p-16">
                 {[...Array(9)].map((_, i) => (
@@ -127,7 +144,13 @@ const HowItWorks = () => {
         return (
           <div className="w-full h-full flex flex-col items-center justify-center animate-fadeIn">
             <svg className="w-full h-80 max-w-lg mb-8" viewBox="0 0 400 400">
-              <circle cx="200" cy="200" r="40" fill="url(#centralGradient)" className="animate-pulse" />
+              <circle
+                cx="200"
+                cy="200"
+                r="40"
+                fill="url(#centralGradient)"
+                className="animate-pulse"
+              />
 
               {[0, 1, 2, 3, 4, 5].map((i) => {
                 const angle = (i / 6) * Math.PI * 2 - Math.PI / 2;
@@ -159,15 +182,33 @@ const HowItWorks = () => {
               })}
 
               <defs>
-                <linearGradient id="centralGradient" x1="0%" y1="0%" x2="100%" y2="100%">
+                <linearGradient
+                  id="centralGradient"
+                  x1="0%"
+                  y1="0%"
+                  x2="100%"
+                  y2="100%"
+                >
                   <stop offset="0%" stopColor="#10d8c4" />
                   <stop offset="100%" stopColor="#7467ef" />
                 </linearGradient>
-                <linearGradient id="nodeGradient" x1="0%" y1="0%" x2="100%" y2="100%">
+                <linearGradient
+                  id="nodeGradient"
+                  x1="0%"
+                  y1="0%"
+                  x2="100%"
+                  y2="100%"
+                >
                   <stop offset="0%" stopColor="#10d8c4" />
                   <stop offset="100%" stopColor="#3b82f6" />
                 </linearGradient>
-                <linearGradient id="lineGradient" x1="0%" y1="0%" x2="100%" y2="0%">
+                <linearGradient
+                  id="lineGradient"
+                  x1="0%"
+                  y1="0%"
+                  x2="100%"
+                  y2="0%"
+                >
                   <stop offset="0%" stopColor="#10d8c4" stopOpacity="0.5" />
                   <stop offset="100%" stopColor="#7467ef" stopOpacity="0.5" />
                 </linearGradient>
@@ -185,16 +226,18 @@ const HowItWorks = () => {
           <div className="w-full h-full flex flex-col items-center justify-center animate-fadeIn">
             <div className="space-y-4 w-full max-w-md mb-8">
               {[
-                { label: 'KYC Status', status: 'Complete' },
-                { label: 'Nominee Check', status: 'Fixed' },
-                { label: 'Compliance', status: 'Verified' },
+                { label: "KYC Status", status: "Complete" },
+                { label: "Nominee Check", status: "Fixed" },
+                { label: "Compliance", status: "Verified" },
               ].map((item, i) => (
                 <div
                   key={i}
                   className="flex items-center justify-between p-6 bg-white/5 backdrop-blur-sm rounded-2xl border border-[#7467ef]/30 animate-slideInRight"
                   style={{ animationDelay: `${i * 0.15}s` }}
                 >
-                  <span className="text-white/90 font-medium">{item.label}</span>
+                  <span className="text-white/90 font-medium">
+                    {item.label}
+                  </span>
                   <div className="flex items-center gap-2">
                     <CheckCircle className="w-5 h-5 text-[#43e97b]" />
                     <span className="px-4 py-2 bg-gradient-to-r from-[#43e97b] to-[#009966] rounded-full text-white text-sm font-semibold">
@@ -225,13 +268,15 @@ const HowItWorks = () => {
               </div>
             </div>
             <div className="grid grid-cols-3 gap-4 mb-8 max-w-md">
-              {['Tax Pack', 'Claims Kit', 'Documents'].map((item, i) => (
+              {["Tax Pack", "Claims Kit", "Documents"].map((item, i) => (
                 <div
                   key={i}
                   className="p-4 bg-gradient-to-br from-[#3b82f6]/20 to-[#10d8c4]/20 rounded-xl border border-[#3b82f6]/30 backdrop-blur-sm text-center animate-fadeIn"
                   style={{ animationDelay: `${i * 0.15}s` }}
                 >
-                  <div className="text-sm text-white/80 font-medium">{item}</div>
+                  <div className="text-sm text-white/80 font-medium">
+                    {item}
+                  </div>
                 </div>
               ))}
             </div>
@@ -257,7 +302,9 @@ const HowItWorks = () => {
             style={{
               left: `${Math.random() * 100}%`,
               top: `${Math.random() * 100}%`,
-              animation: `twinkle ${3 + Math.random() * 4}s ease-in-out infinite`,
+              animation: `twinkle ${
+                3 + Math.random() * 4
+              }s ease-in-out infinite`,
               animationDelay: `${Math.random() * 2}s`,
             }}
           />
@@ -277,7 +324,8 @@ const HowItWorks = () => {
             <span className="text-white"> Works</span>
           </h2>
           <p className="text-xl text-white/70 max-w-2xl mx-auto leading-relaxed">
-            From setup to protection in minutes. Watch AI transform your financial legacy.
+            From setup to protection in minutes. Watch AI transform your
+            financial legacy.
           </p>
         </div>
 
@@ -296,32 +344,38 @@ const HowItWorks = () => {
                   <div
                     className={`relative glass-card rounded-3xl p-8 border transition-all duration-500 ${
                       isActive
-                        ? 'border-white/30 shadow-2xl scale-100'
-                        : 'border-white/10 scale-95 opacity-70'
+                        ? "border-white/30 shadow-2xl scale-100"
+                        : "border-white/10 scale-95 opacity-70"
                     }`}
                   >
                     <div className="flex items-start gap-6">
                       <div
                         className={`w-16 h-16 rounded-2xl bg-gradient-to-br ${step.color} p-4 flex-shrink-0 transition-all duration-500`}
                         style={{
-                          boxShadow: isActive ? `0 20px 60px ${step.glowColor}` : 'none',
+                          boxShadow: isActive
+                            ? `0 20px 60px ${step.glowColor}`
+                            : "none",
                         }}
                       >
-                        <step.icon className={`w-full h-full text-white ${isActive ? 'animate-pulse' : ''}`} />
+                        <step.icon
+                          className={`w-full h-full text-white ${
+                            isActive ? "animate-pulse" : ""
+                          }`}
+                        />
                       </div>
 
                       <div className="flex-1">
                         <div className="flex items-center gap-3 mb-3">
                           <span
                             className={`text-sm font-bold transition-colors duration-500 ${
-                              isActive ? 'text-[#10d8c4]' : 'text-white/50'
+                              isActive ? "text-[#10d8c4]" : "text-white/50"
                             }`}
                           >
                             {step.number}
                           </span>
                           <h3
                             className={`text-xl font-bold transition-colors duration-500 ${
-                              isActive ? 'text-white' : 'text-white/60'
+                              isActive ? "text-white" : "text-white/60"
                             }`}
                           >
                             {step.title}
@@ -330,7 +384,7 @@ const HowItWorks = () => {
 
                         <p
                           className={`text-sm leading-relaxed mb-4 transition-colors duration-500 ${
-                            isActive ? 'text-white/80' : 'text-white/50'
+                            isActive ? "text-white/80" : "text-white/50"
                           }`}
                         >
                           {step.description}
@@ -339,8 +393,8 @@ const HowItWorks = () => {
                         <span
                           className={`inline-flex items-center gap-2 px-4 py-2 rounded-full text-xs font-semibold transition-all duration-500 ${
                             isActive
-                              ? 'bg-gradient-to-r from-[#10d8c4]/20 to-[#7467ef]/20 text-[#10d8c4] border border-[#10d8c4]/30'
-                              : 'bg-white/5 text-white/50 border border-white/10'
+                              ? "bg-gradient-to-r from-[#10d8c4]/20 to-[#7467ef]/20 text-[#10d8c4] border border-[#10d8c4]/30"
+                              : "bg-white/5 text-white/50 border border-white/10"
                           }`}
                         >
                           {isActive && <Sparkles className="w-3 h-3" />}
@@ -367,7 +421,9 @@ const HowItWorks = () => {
               <div className="h-2 bg-white/10 rounded-full overflow-hidden">
                 <div
                   className="h-full bg-gradient-to-r from-[#10d8c4] via-[#43e97b] to-[#7467ef] transition-all duration-500 rounded-full"
-                  style={{ width: `${((activeStep + 1) / steps.length) * 100}%` }}
+                  style={{
+                    width: `${((activeStep + 1) / steps.length) * 100}%`,
+                  }}
                 />
               </div>
             </div>
@@ -381,10 +437,13 @@ const HowItWorks = () => {
         </div>
 
         <div className="text-center mt-20">
-          <button onClick={()=>navigate("/contact")}  className="group px-10 py-5 bg-gradient-to-r from-[#43e97b] to-[#009966] rounded-full font-semibold text-lg text-white transition-all duration-300 transform hover:scale-105 shadow-xl inline-flex items-center gap-3">
+          <a
+            href="https://secufi-client.vercel.app/login"
+            className="group px-10 py-5 bg-gradient-to-r from-[#43e97b] to-[#009966] rounded-full font-semibold text-lg text-white transition-all duration-300 transform hover:scale-105 shadow-xl inline-flex items-center gap-3"
+          >
             Get Started Now
             <ArrowRight className="w-5 h-5 group-hover:translate-x-2 transition-transform" />
-          </button>
+          </a>
         </div>
       </div>
 

@@ -1,68 +1,82 @@
-import { FileText, Search, Shield, BarChart3, Users, CheckCircle } from 'lucide-react';
-import { useEffect, useRef, useState } from 'react';
-import {useNavigate} from 'react-router-dom'
-
+import {
+  FileText,
+  Search,
+  Shield,
+  BarChart3,
+  Users,
+  CheckCircle,
+} from "lucide-react";
+import { useEffect, useRef, useState } from "react";
+import { useNavigate } from "react-router-dom";
 
 const features = [
   {
     icon: FileText,
-    title: 'Family Instructions Pack',
-    description: 'Map family members, beneficiaries and key preferences in a review-ready document for your lawyer/CA—without legal jargon.',
-    color: 'from-[#ffab40] to-[#ff784b]',
-    glowColor: 'rgba(255, 171, 64, 0.4)',
-    animationType: 'flip',
+    title: "Family Instructions Pack",
+    description:
+      "Map family members, beneficiaries and key preferences in a review-ready document for your lawyer/CA—without legal jargon.",
+    color: "from-[#ffab40] to-[#ff784b]",
+    glowColor: "rgba(255, 171, 64, 0.4)",
+    animationType: "flip",
   },
   {
     icon: Search,
-    title: 'Auto Asset Discovery',
-    description: 'With your consent, we read emails, SMS and statements to find accounts, Mutual Funds (via CAS), insurance and investments—automatically.',
-    color: 'from-[#43e97b] to-[#009966]',
-    glowColor: 'rgba(67, 233, 123, 0.4)',
-    animationType: 'scan',
+    title: "Auto Asset Discovery",
+    description:
+      "With your consent, we read emails, SMS and statements to find accounts, Mutual Funds (via CAS), insurance and investments—automatically.",
+    color: "from-[#43e97b] to-[#009966]",
+    glowColor: "rgba(67, 233, 123, 0.4)",
+    animationType: "scan",
   },
   {
     icon: Shield,
-    title: 'Household Map',
-    description: 'One view of people, nominees and guardians—link every asset to the right person, clearly.',
-    color: 'from-[#10d8c4] to-[#7467ef]',
-    glowColor: 'rgba(16, 216, 196, 0.4)',
-    animationType: 'shield',
+    title: "Household Map",
+    description:
+      "One view of people, nominees and guardians—link every asset to the right person, clearly.",
+    color: "from-[#10d8c4] to-[#7467ef]",
+    glowColor: "rgba(16, 216, 196, 0.4)",
+    animationType: "shield",
   },
   {
     icon: CheckCircle,
-    title: 'Nominee & KYC Playbooks',
-    description: 'Detect nominee gaps, name/address mismatches and FATCA/CKYC issues—then follow simple steps to fix them.',
-    color: 'from-[#7467ef] to-[#3b82f6]',
-    glowColor: 'rgba(116, 103, 239, 0.4)',
-    animationType: 'check',
+    title: "Nominee & KYC Playbooks",
+    description:
+      "Detect nominee gaps, name/address mismatches and FATCA/CKYC issues—then follow simple steps to fix them.",
+    color: "from-[#7467ef] to-[#3b82f6]",
+    glowColor: "rgba(116, 103, 239, 0.4)",
+    animationType: "check",
   },
   {
     icon: BarChart3,
-    title: 'Tax Pack (FY)',
-    description: 'Collect capital-gains, interest certificates, premiums and statements—export-ready for your CA or e-filing.',
-    color: 'from-[#3b82f6] to-[#10d8c4]',
-    glowColor: 'rgba(59, 130, 246, 0.4)',
-    animationType: 'chart',
+    title: "Tax Pack (FY)",
+    description:
+      "Collect capital-gains, interest certificates, premiums and statements—export-ready for your CA or e-filing.",
+    color: "from-[#3b82f6] to-[#10d8c4]",
+    glowColor: "rgba(59, 130, 246, 0.4)",
+    animationType: "chart",
   },
   {
     icon: Users,
-    title: 'Claims-Ready Kit',
-    description: 'All documents and instructions your family needs for insurance claims and account transfers—one tap away.',
-    color: 'from-[#43e97b] to-[#ffab40]',
-    glowColor: 'rgba(67, 233, 123, 0.4)',
-    animationType: 'pulse',
+    title: "Claims-Ready Kit",
+    description:
+      "All documents and instructions your family needs for insurance claims and account transfers—one tap away.",
+    color: "from-[#43e97b] to-[#ffab40]",
+    glowColor: "rgba(67, 233, 123, 0.4)",
+    animationType: "pulse",
   },
 ];
 
 const Features = () => {
-    const navigate=useNavigate();
+  const navigate = useNavigate();
 
-  const [visibleCards, setVisibleCards] = useState<boolean[]>(new Array(features.length).fill(false));
+  const [visibleCards, setVisibleCards] = useState<boolean[]>(
+    new Array(features.length).fill(false)
+  );
   const [headerVisible, setHeaderVisible] = useState(false);
-  const [animatedText, setAnimatedText] = useState('');
+  const [animatedText, setAnimatedText] = useState("");
   const cardRefs = useRef<(HTMLDivElement | null)[]>([]);
   const headerRef = useRef<HTMLDivElement>(null);
-  const fullText = 'organised & secure';
+  const fullText = "organised & secure";
 
   useEffect(() => {
     const headerObserver = new IntersectionObserver(
@@ -130,20 +144,41 @@ const Features = () => {
               style={{
                 left: `${Math.random() * 100}%`,
                 top: `${Math.random() * 100}%`,
-                animation: `twinkle ${2 + Math.random() * 3}s ease-in-out infinite`,
+                animation: `twinkle ${
+                  2 + Math.random() * 3
+                }s ease-in-out infinite`,
                 animationDelay: `${Math.random() * 2}s`,
               }}
             />
           ))}
         </div>
 
-        <div className="absolute top-1/4 -left-32 w-[600px] h-[600px] bg-gradient-to-r from-[#43e97b]/20 to-[#10d8c4]/20 rounded-full blur-[150px] animate-pulse" style={{ animationDuration: '8s' }} />
-        <div className="absolute bottom-1/4 -right-32 w-[600px] h-[600px] bg-gradient-to-r from-[#7467ef]/20 to-[#ffab40]/20 rounded-full blur-[150px] animate-pulse" style={{ animationDuration: '10s', animationDelay: '2s' }} />
+        <div
+          className="absolute top-1/4 -left-32 w-[600px] h-[600px] bg-gradient-to-r from-[#43e97b]/20 to-[#10d8c4]/20 rounded-full blur-[150px] animate-pulse"
+          style={{ animationDuration: "8s" }}
+        />
+        <div
+          className="absolute bottom-1/4 -right-32 w-[600px] h-[600px] bg-gradient-to-r from-[#7467ef]/20 to-[#ffab40]/20 rounded-full blur-[150px] animate-pulse"
+          style={{ animationDuration: "10s", animationDelay: "2s" }}
+        />
 
-        <svg className="absolute inset-0 w-full h-full" xmlns="http://www.w3.org/2000/svg">
+        <svg
+          className="absolute inset-0 w-full h-full"
+          xmlns="http://www.w3.org/2000/svg"
+        >
           <defs>
-            <pattern id="grid" width="50" height="50" patternUnits="userSpaceOnUse">
-              <path d="M 50 0 L 0 0 0 50" fill="none" stroke="rgba(255,255,255,0.03)" strokeWidth="0.5"/>
+            <pattern
+              id="grid"
+              width="50"
+              height="50"
+              patternUnits="userSpaceOnUse"
+            >
+              <path
+                d="M 50 0 L 0 0 0 50"
+                fill="none"
+                stroke="rgba(255,255,255,0.03)"
+                strokeWidth="0.5"
+              />
             </pattern>
           </defs>
           <rect width="100%" height="100%" fill="url(#grid)" />
@@ -159,30 +194,43 @@ const Features = () => {
             <span className="relative inline-block">
               <span className="bg-gradient-to-r from-[#43e97b] via-[#10d8c4] to-[#7467ef] bg-clip-text text-transparent">
                 {animatedText}
-                <span className={`inline-block w-1 h-12 ml-1 bg-[#10d8c4] ${headerVisible && animatedText.length < fullText.length ? 'animate-pulse' : 'opacity-0'}`} />
+                <span
+                  className={`inline-block w-1 h-12 ml-1 bg-[#10d8c4] ${
+                    headerVisible && animatedText.length < fullText.length
+                      ? "animate-pulse"
+                      : "opacity-0"
+                  }`}
+                />
               </span>
               <div
                 className={`absolute -bottom-2 left-0 h-1 bg-gradient-to-r from-[#43e97b] via-[#10d8c4] to-[#7467ef] transition-all duration-1000 ${
-                  headerVisible ? 'w-full' : 'w-0'
+                  headerVisible ? "w-full" : "w-0"
                 }`}
                 style={{
-                  boxShadow: '0 0 20px rgba(16, 216, 196, 0.6)',
+                  boxShadow: "0 0 20px rgba(16, 216, 196, 0.6)",
                 }}
               />
             </span>
           </h2>
           <p className="text-xl text-white/70 max-w-3xl mx-auto leading-relaxed">
-            From asset discovery and nominee & KYC fixes to claims preparation—guided by AI you control.
+            From asset discovery and nominee & KYC fixes to claims
+            preparation—guided by AI you control.
           </p>
 
-          <div className={`mt-8 inline-flex items-center gap-3 px-6 py-3 glass-card rounded-full border border-white/10 transition-all duration-700 ${headerVisible ? 'opacity-100 scale-100' : 'opacity-0 scale-95'}`}>
+          <div
+            className={`mt-8 inline-flex items-center gap-3 px-6 py-3 glass-card rounded-full border border-white/10 transition-all duration-700 ${
+              headerVisible ? "opacity-100 scale-100" : "opacity-0 scale-95"
+            }`}
+          >
             <div className="relative">
               <div className="w-8 h-8 rounded-full bg-gradient-to-r from-[#43e97b] to-[#10d8c4] flex items-center justify-center">
                 <Shield className="w-4 h-4 text-white" />
               </div>
               <div className="absolute inset-0 rounded-full bg-gradient-to-r from-[#43e97b] to-[#10d8c4] animate-ping opacity-75" />
             </div>
-            <span className="text-sm font-medium text-white/90">Bank-grade security · encryption in transit & at rest</span>
+            <span className="text-sm font-medium text-white/90">
+              Bank-grade security · encryption in transit & at rest
+            </span>
           </div>
         </div>
 
@@ -193,11 +241,11 @@ const Features = () => {
               ref={(el) => (cardRefs.current[index] = el)}
               className={`group relative rounded-3xl transition-all duration-700 ${
                 visibleCards[index]
-                  ? 'opacity-100 translate-y-0'
-                  : 'opacity-0 translate-y-10'
+                  ? "opacity-100 translate-y-0"
+                  : "opacity-0 translate-y-10"
               }`}
               style={{
-                transformStyle: 'preserve-3d',
+                transformStyle: "preserve-3d",
               }}
               onMouseMove={(e) => {
                 const card = e.currentTarget;
@@ -211,7 +259,8 @@ const Features = () => {
                 card.style.transform = `perspective(1000px) rotateX(${rotateX}deg) rotateY(${rotateY}deg) translateZ(10px)`;
               }}
               onMouseLeave={(e) => {
-                e.currentTarget.style.transform = 'perspective(1000px) rotateX(0) rotateY(0) translateZ(0)';
+                e.currentTarget.style.transform =
+                  "perspective(1000px) rotateX(0) rotateY(0) translateZ(0)";
               }}
             >
               <div className="relative glass-card rounded-3xl p-8 h-full border border-white/10 overflow-hidden">
@@ -228,39 +277,39 @@ const Features = () => {
                       boxShadow: `0 10px 40px ${feature.glowColor}`,
                     }}
                   >
-                    {feature.animationType === 'flip' && (
+                    {feature.animationType === "flip" && (
                       <div className="absolute inset-0 flex items-center justify-center group-hover:animate-[flip_0.6s_ease-in-out]">
                         <feature.icon className="w-full h-full text-white p-2" />
                       </div>
                     )}
 
-                    {feature.animationType === 'scan' && (
+                    {feature.animationType === "scan" && (
                       <div className="relative w-full h-full">
                         <feature.icon className="w-full h-full text-white group-hover:scale-110 transition-transform duration-300" />
                         <div className="absolute inset-0 bg-gradient-to-b from-transparent via-white/50 to-transparent opacity-0 group-hover:opacity-100 group-hover:animate-[scan_1s_ease-in-out]" />
                       </div>
                     )}
 
-                    {feature.animationType === 'shield' && (
+                    {feature.animationType === "shield" && (
                       <div className="w-full h-full group-hover:animate-[spin_2s_ease-in-out]">
                         <feature.icon className="w-full h-full text-white" />
                       </div>
                     )}
 
-                    {feature.animationType === 'check' && (
+                    {feature.animationType === "check" && (
                       <div className="relative w-full h-full">
                         <feature.icon className="w-full h-full text-white group-hover:animate-[bounce_0.6s_ease-in-out]" />
                       </div>
                     )}
 
-                    {feature.animationType === 'chart' && (
+                    {feature.animationType === "chart" && (
                       <div className="relative w-full h-full">
                         <feature.icon className="w-full h-full text-white" />
                         <div className="absolute bottom-0 left-0 right-0 h-0 bg-white/30 group-hover:animate-[growUp_1s_ease-in-out]" />
                       </div>
                     )}
 
-                    {feature.animationType === 'pulse' && (
+                    {feature.animationType === "pulse" && (
                       <div className="relative w-full h-full">
                         <feature.icon className="w-full h-full text-white group-hover:animate-[heartbeat_0.8s_ease-in-out_infinite]" />
                       </div>
@@ -276,11 +325,23 @@ const Features = () => {
                   </p>
 
                   <div className="mt-6 flex items-center gap-2 text-sm font-medium opacity-0 group-hover:opacity-100 transition-all duration-300 transform translate-y-2 group-hover:translate-y-0">
-                    <span className={`bg-gradient-to-r ${feature.color} bg-clip-text text-transparent`}>
+                    <span
+                      className={`bg-gradient-to-r ${feature.color} bg-clip-text text-transparent`}
+                    >
                       Learn more
                     </span>
-                    <svg className="w-4 h-4 text-white/60 group-hover:translate-x-1 transition-transform" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5l7 7-7 7" />
+                    <svg
+                      className="w-4 h-4 text-white/60 group-hover:translate-x-1 transition-transform"
+                      fill="none"
+                      viewBox="0 0 24 24"
+                      stroke="currentColor"
+                    >
+                      <path
+                        strokeLinecap="round"
+                        strokeLinejoin="round"
+                        strokeWidth={2}
+                        d="M9 5l7 7-7 7"
+                      />
                     </svg>
                   </div>
                 </div>
@@ -293,17 +354,33 @@ const Features = () => {
 
         <div className="mt-20 text-center">
           <div className="inline-flex flex-col sm:flex-row gap-4">
-            <button onClick={()=>navigate("/contact")}   className="group relative px-10 py-5 bg-gradient-to-r from-[#10d8c4] to-[#7467ef] rounded-full font-semibold text-lg text-white overflow-hidden transition-all duration-300 transform hover:scale-105 shadow-xl">
+            <a
+              href="https://secufi-client.vercel.app/login"
+              className="group relative px-10 py-5 bg-gradient-to-r from-[#10d8c4] to-[#7467ef] rounded-full font-semibold text-lg text-white overflow-hidden transition-all duration-300 transform hover:scale-105 shadow-xl"
+            >
               <span className="relative z-10 flex items-center justify-center gap-2">
                 Explore features
-                <svg className="w-5 h-5 group-hover:translate-x-1 transition-transform" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M13 7l5 5m0 0l-5 5m5-5H6" />
+                <svg
+                  className="w-5 h-5 group-hover:translate-x-1 transition-transform"
+                  fill="none"
+                  viewBox="0 0 24 24"
+                  stroke="currentColor"
+                >
+                  <path
+                    strokeLinecap="round"
+                    strokeLinejoin="round"
+                    strokeWidth={2}
+                    d="M13 7l5 5m0 0l-5 5m5-5H6"
+                  />
                 </svg>
               </span>
               <div className="absolute inset-0 bg-gradient-to-r from-[#7467ef] to-[#10d8c4] opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
-            </button>
+            </a>
 
-            <button onClick={()=>navigate("/contact")}   className="px-10 py-5 glass-card glass-card-hover rounded-full font-semibold text-lg text-white border-white/20 shadow-xl">
+            <button
+              onClick={() => navigate("/contact")}
+              className="px-10 py-5 glass-card glass-card-hover rounded-full font-semibold text-lg text-white border-white/20 shadow-xl"
+            >
               Schedule a demo
             </button>
           </div>
