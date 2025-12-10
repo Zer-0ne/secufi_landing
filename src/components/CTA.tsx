@@ -48,7 +48,7 @@ const CTA = () => {
                 <ArrowRight className="w-5 h-5 group-hover:translate-x-2 transition-transform" />
               </a>
               <button
-                onClick={() => navigate("/contact")}
+                onClick={() => navigate("/schedule-demo")}
                 className="px-10 py-5 bg-blue-50 border border-blue-200 text-blue-700 rounded-full font-semibold text-lg hover:bg-blue-100 hover:border-blue-300 transition-all duration-300 inline-flex items-center justify-center gap-3"
               >
                 Schedule Demo
