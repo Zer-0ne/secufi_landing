@@ -10,11 +10,7 @@ import {
   CheckCircle2,
   ArrowLeft,
 } from "lucide-react";
-// import { createClient } from "@supabase/supabase-js";
 
-// const supabaseUrl = import.meta.env.VITE_SUPABASE_URL;
-// const supabaseAnonKey = import.meta.env.VITE_SUPABASE_ANON_KEY;
-// const supabase = createClient(supabaseUrl, supabaseAnonKey);
 
 const AdvisorSignup = () => {
   const navigate = useNavigate();
@@ -71,20 +67,7 @@ const AdvisorSignup = () => {
     setError("");
 
     try {
-      // const { error: insertError } = await supabase
-      //   .from("advisor_signups")
-      //   .insert([
-      //     {
-      //       name: formData.name,
-      //       email: formData.email,
-      //       phone: formData.phone,
-      //       advisor_type: formData.advisorType,
-      //       company_name: formData.companyName || null,
-      //       message: formData.message || null,
-      //     },
-      //   ]);
 
-      // if (insertError) throw insertError;
 
       setIsSuccess(true);
       setFormData({

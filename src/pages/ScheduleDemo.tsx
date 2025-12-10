@@ -16,11 +16,7 @@ import {
   Zap,
   TrendingUp,
 } from "lucide-react";
-// import { createClient } from "@supabase/supabase-js";
 
-// const supabaseUrl = import.meta.env.VITE_SUPABASE_URL;
-// const supabaseAnonKey = import.meta.env.VITE_SUPABASE_ANON_KEY;
-// const supabase = createClient(supabaseUrl, supabaseAnonKey);
 
 const ScheduleDemo = () => {
   const navigate = useNavigate();
@@ -75,24 +71,7 @@ const ScheduleDemo = () => {
     setError("");
 
     try {
-      // const { error: insertError } = await supabase
-      //   .from("demo_requests")
-      //   .insert([
-      //     {
-      //       name: formData.name,
-      //       email: formData.email,
-      //       phone: formData.phone,
-      //       company: formData.company || null,
-      //       role: formData.role || null,
-      //       preferred_date: formData.preferredDate || null,
-      //       preferred_time: formData.preferredTime || null,
-      //       timezone: formData.timezone,
-      //       interests: formData.interests || null,
-      //       message: formData.message || null,
-      //     },
-      //   ]);
 
-      // if (insertError) throw insertError;
 
       setIsSuccess(true);
       setFormData({
