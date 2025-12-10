@@ -6,6 +6,8 @@ import CTA from "./components/CTA";
 import { Routes, Route } from "react-router-dom";
 import { useState } from "react";
 import Form from "./components/Form.tsx";
+import AdvisorSignup from "./pages/AdvisorSignup";
+
 function App() {
   return (
     <Routes>
@@ -23,6 +25,7 @@ function App() {
       />
 
       <Route path="/contact" element={<Form />} />
+      <Route path="/advisor-signup" element={<AdvisorSignup />} />
     </Routes>
   );
 }

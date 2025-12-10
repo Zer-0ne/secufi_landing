@@ -80,7 +80,7 @@ const ForAdvisors = () => {
               ))}
             </div>
 
-            <button onClick={()=>navigate("/contact")}   className="group px-8 py-4 bg-gradient-to-r from-blue-600 to-teal-600 text-white rounded-full font-semibold text-lg hover:shadow-xl transition-all duration-300 transform hover:scale-105 inline-flex items-center gap-3">
+            <button onClick={()=>navigate("/advisor-signup")}   className="group px-8 py-4 bg-gradient-to-r from-blue-600 to-teal-600 text-white rounded-full font-semibold text-lg hover:shadow-xl transition-all duration-300 transform hover:scale-105 inline-flex items-center gap-3">
               Join as an Advisor
               <ArrowRight className="w-5 h-5 group-hover:translate-x-2 transition-transform" />
             </button>
