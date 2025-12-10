@@ -1,24 +1,16 @@
 import { useEffect, useState } from "react";
-import { ArrowRight, Sparkles } from "lucide-react";
+import { ArrowRight, Shield, Check, Sparkles } from "lucide-react";
 import FamilyNetworkAnimation from "./animations/FamilyNetworkAnimation";
 import ProgressRing from "./animations/ProgressRing";
 import { useNavigate } from "react-router-dom";
 
-// Utility function to check for Windows OR Android OS
 const isPlatformAllowedForAnimation = () => {
   if (typeof window === "undefined") {
-    // Safety check for Server-Side Rendering (SSR)
     return false;
   }
-  //
   const userAgent = window.navigator.userAgent;
-
-  // Check for Windows
   const isWindows = userAgent.indexOf("Win") !== -1;
-
-  // Check for Android (includes Android phones and tablets)
   const isAndroid = userAgent.indexOf("Android") !== -1;
-
   return isWindows || isAndroid;
 };
 
@@ -26,15 +18,10 @@ const Hero = () => {
   const [phase, setPhase] = useState(0);
   const [isVisible, setIsVisible] = useState(false);
   const navigate = useNavigate();
-
-  // 1. State to control animation visibility
   const [showAnimation, setShowAnimation] = useState(false);
 
   useEffect(() => {
-    // Client-side execution
     setIsVisible(true);
-
-    // 2. Set animation visibility based on the allowed platforms (Windows or Android)
     setShowAnimation(isPlatformAllowedForAnimation());
 
     const phaseTimings = [0, 2500, 5000, 7500];
@@ -46,45 +33,49 @@ const Hero = () => {
   }, []);
 
   return (
-    <div className="relative min-h-lvh flex items-center justify-center overflow-hidden bg-gradient-to-br from-[#16223e] via-[#232e4d] to-[#1a2540]">
-      <div className="absolute inset-0 opacity-20">
-        {/* Blob background animations */}
+    <div className="relative min-h-screen flex items-center justify-center overflow-hidden bg-gradient-to-br from-blue-50 via-teal-50 to-emerald-50">
+      {/* Animated grid pattern */}
+      <div className="absolute inset-0 opacity-[0.03]">
         <div
-          className="absolute top-1/4 left-1/4 w-[500px] h-[500px] bg-gradient-to-r from-[#10d8c4] to-[#43e97b] rounded-full blur-[140px]"
-          style={{ animation: "blobFloat 12s ease-in-out infinite" }}
-        />
-        <div
-          className="absolute top-1/3 right-1/4 w-[450px] h-[450px] bg-gradient-to-r from-[#7467ef] to-[#10d8c4] rounded-full blur-[130px]"
+          className="absolute inset-0"
           style={{
-            animation: "blobFloat 14s ease-in-out infinite",
-            animationDelay: "2s",
-          }}
-        />
-        <div
-          className="absolute bottom-1/4 left-1/3 w-[400px] h-[400px] bg-gradient-to-r from-[#ffab40] to-[#ff784b] rounded-full blur-[120px]"
-          style={{
-            animation: "blobFloat 16s ease-in-out infinite",
-            animationDelay: "4s",
-          }}
-        />
-        <div
-          className="absolute bottom-1/3 right-1/3 w-[420px] h-[420px] bg-gradient-to-r from-[#009966] to-[#10d8c4] rounded-full blur-[125px]"
-          style={{
-            animation: "blobFloat 15s ease-in-out infinite",
-            animationDelay: "6s",
+            backgroundImage: `linear-gradient(to right, rgb(16, 216, 196) 1px, transparent 1px), linear-gradient(to bottom, rgb(16, 216, 196) 1px, transparent 1px)`,
+            backgroundSize: "80px 80px",
           }}
         />
       </div>
 
-      {/* Conditional Rendering: Only show animation if showAnimation is true (Windows or Android) */}
+      {/* Floating gradient orbs */}
+      <div className="absolute inset-0 overflow-hidden">
+        <div
+          className="absolute top-[10%] left-[15%] w-[600px] h-[600px] bg-gradient-to-br from-teal-200/40 to-blue-200/40 rounded-full blur-[100px] floating-orb"
+          style={{ animationDelay: "0s" }}
+        />
+        <div
+          className="absolute top-[40%] right-[10%] w-[500px] h-[500px] bg-gradient-to-br from-emerald-200/40 to-teal-200/40 rounded-full blur-[100px] floating-orb"
+          style={{ animationDelay: "2s" }}
+        />
+        <div
+          className="absolute bottom-[10%] left-[40%] w-[450px] h-[450px] bg-gradient-to-br from-blue-200/40 to-cyan-200/40 rounded-full blur-[100px] floating-orb"
+          style={{ animationDelay: "4s" }}
+        />
+      </div>
+
+      {/* Floating geometric shapes */}
+      <div className="absolute inset-0 pointer-events-none">
+        <div className="absolute top-[20%] right-[15%] w-32 h-32 border-2 border-teal-300/30 rounded-3xl rotate-45 floating-shape" />
+        <div className="absolute bottom-[30%] left-[10%] w-24 h-24 border-2 border-blue-300/30 rounded-full floating-shape" style={{ animationDelay: "1s" }} />
+        <div className="absolute top-[60%] right-[25%] w-20 h-20 bg-gradient-to-br from-emerald-300/20 to-teal-300/20 rounded-2xl rotating-shape" />
+      </div>
+
       {showAnimation && (
-        <div className="absolute inset-0 flex items-center justify-center pointer-events-none">
+        <div className="absolute inset-0 flex items-center justify-center pointer-events-none opacity-30">
           <FamilyNetworkAnimation />
         </div>
       )}
 
-      <div className="relative z-20 w-full max-w-7xl mx-auto px-6 py-16">
-        <div className="grid lg:grid-cols-2 gap-12 items-center">
+      <div className="relative z-20 w-full max-w-7xl mx-auto px-6 py-20">
+        <div className="grid lg:grid-cols-2 gap-16 items-center">
           <div
             className={`transition-all duration-1000 ${
               isVisible
@@ -92,45 +83,43 @@ const Hero = () => {
                 : "opacity-0 -translate-x-10"
             }`}
           >
-            <div className="relative inline-flex items-center gap-3 px-5 py-3 mb-8 group">
-              {/* Gradient border effect */}
-              <div className="absolute inset-0 bg-gradient-to-r from-[#10d8c4] via-[#43e97b] to-[#ffab40] rounded-2xl opacity-60 blur-sm group-hover:opacity-80 transition-opacity duration-300" />
-              <div className="absolute inset-[2px] glass-card rounded-2xl" />
+            {/* Premium Badge */}
+            <div className="relative inline-flex items-center gap-3 px-6 py-3 mb-8 group">
+              <div className="absolute inset-0 bg-gradient-to-r from-teal-400 via-emerald-400 to-blue-400 rounded-2xl opacity-20 blur-xl group-hover:opacity-30 transition-all duration-500" />
+              <div className="absolute inset-[1px] bg-white rounded-2xl shadow-lg" />
 
-              {/* Animated shimmer overlay */}
               <div className="absolute inset-0 rounded-2xl overflow-hidden">
-                <div className="absolute inset-0 bg-gradient-to-r from-transparent via-white/10 to-transparent shimmer" />
+                <div className="absolute inset-0 bg-gradient-to-r from-transparent via-white/60 to-transparent shimmer" />
               </div>
 
-              {/* Content */}
               <div className="relative flex items-center gap-3">
                 <div className="relative">
-                  <div className="absolute inset-0 bg-gradient-to-r from-[#10d8c4] to-[#43e97b] rounded-full blur-md opacity-50 group-hover:opacity-70 transition-opacity" />
+                  <div className="absolute inset-0 bg-gradient-to-br from-teal-400 to-emerald-400 rounded-full blur-lg opacity-40 group-hover:opacity-60 transition-opacity" />
                   <img
                     src="./Images/logo.jpeg"
-                    alt="logo"
-                    className="relative aspect-square h-20 rounded-full border-2 border-white/30 shadow-lg"
+                    alt="SecuFi Logo"
+                    className="relative aspect-square h-16 rounded-full border-2 border-white shadow-xl"
                   />
                 </div>
-                <span className="flex items-center gap-2">
-                  <span className="block bg-gradient-to-r from-[#10d8c4] via-[#43e97b] to-[#ffab40] bg-clip-text text-transparent bg-[length:200%_auto] animate-gradient text-5xl font-bold tracking-tight">
+                <div className="flex items-center gap-2">
+                  <span className="block bg-gradient-to-r from-teal-600 via-emerald-600 to-blue-600 bg-clip-text text-transparent bg-[length:200%_auto] animate-gradient text-4xl font-bold tracking-tight">
                     SecuFi
                   </span>
-                  <Sparkles className="w-6 h-6 text-[#10d8c4] animate-pulse" />
-                </span>
+                  <Shield className="w-5 h-5 text-teal-600 animate-pulse" />
+                </div>
               </div>
             </div>
 
-            <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold mb-6 leading-tight">
-              <span className="block text-white mb-2">
+            <h1 className="text-5xl md:text-6xl lg:text-7xl font-bold mb-6 leading-tight tracking-tight">
+              <span className="block text-gray-900 mb-2">
                 Secure, organized and claim ready
               </span>
-              <span className="block bg-gradient-to-r from-[#10d8c4] via-[#43e97b] to-[#ffab40] bg-clip-text text-transparent bg-[length:200%_auto] animate-gradient pb-4">
+              <span className="block bg-gradient-to-r from-teal-600 via-emerald-600 to-blue-600 bg-clip-text text-transparent bg-[length:200%_auto] animate-gradient">
                 together as a family
               </span>
             </h1>
 
-            <p className="text-xl md:text-2xl text-white/70 mb-10 leading-relaxed max-w-xl">
+            <p className="text-xl md:text-2xl text-gray-600 mb-10 leading-relaxed max-w-xl">
               See all your money in one place, keep important papers safe, and
               get a Readiness Score that guides you to fix nominee & KYC gaps—so
               your family is always prepared.
@@ -139,35 +128,38 @@ const Hero = () => {
             <div className="flex flex-col sm:flex-row gap-4 mb-12">
               <a
                 href="https://secufi-client.vercel.app/login"
-                className="group relative px-10 py-5 bg-gradient-to-r from-[#43e97b] to-[#009966] rounded-full font-semibold text-lg text-white overflow-hidden transition-all duration-300 transform hover:scale-105 flex items-center justify-center gap-2 glow-green shadow-xl"
+                className="group relative px-10 py-5 bg-gradient-to-r from-teal-500 to-emerald-500 rounded-2xl font-semibold text-lg text-white overflow-hidden transition-all duration-300 transform hover:scale-105 hover:shadow-2xl flex items-center justify-center gap-2"
               >
                 <span className="relative z-10 flex items-center gap-2">
                   Start Free (≈5 min)
                   <ArrowRight className="w-5 h-5 group-hover:translate-x-1 transition-transform" />
                 </span>
-                <div className="absolute inset-0 bg-gradient-to-r from-[#009966] to-[#43e97b] opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
+                <div className="absolute inset-0 bg-gradient-to-r from-teal-600 to-emerald-600 opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
               </a>
               <button
                 onClick={() => navigate("/contact")}
-                className="px-10 py-5 glass-card glass-card-hover rounded-full font-semibold text-lg text-white border-white/20 shadow-xl"
+                className="px-10 py-5 bg-white border-2 border-gray-200 hover:border-teal-300 rounded-2xl font-semibold text-lg text-gray-700 hover:text-teal-600 transition-all duration-300 shadow-sm hover:shadow-xl"
               >
                 Watch Demo
               </button>
             </div>
 
             <div className="flex flex-wrap gap-3">
-              <div className="glass-card rounded-full px-5 py-3 border-white/10">
-                <div className="text-sm font-medium text-white/80">
+              <div className="flex items-center gap-2 bg-white rounded-xl px-5 py-3 border border-gray-200 shadow-sm">
+                <Check className="w-4 h-4 text-teal-600" />
+                <div className="text-sm font-medium text-gray-700">
                   ≈5 min setup
                 </div>
               </div>
-              <div className="glass-card rounded-full px-5 py-3 border-white/10">
-                <div className="text-sm font-medium text-white/80">
+              <div className="flex items-center gap-2 bg-white rounded-xl px-5 py-3 border border-gray-200 shadow-sm">
+                <Check className="w-4 h-4 text-teal-600" />
+                <div className="text-sm font-medium text-gray-700">
                   Encrypted, India-hosted
                 </div>
               </div>
-              <div className="glass-card rounded-full px-5 py-3 border-white/10">
-                <div className="text-sm font-medium text-white/80">
+              <div className="flex items-center gap-2 bg-white rounded-xl px-5 py-3 border border-gray-200 shadow-sm">
+                <Check className="w-4 h-4 text-teal-600" />
+                <div className="text-sm font-medium text-gray-700">
                   AI-assisted
                 </div>
               </div>
@@ -175,24 +167,23 @@ const Hero = () => {
           </div>
 
           <div className="relative">
-            <div className="space-y-6">
+            <div className="space-y-5">
               <div
-                className={`glass-card glass-card-hover rounded-3xl p-6 border-l-4 transition-all duration-700 ${
+                className={`bg-white rounded-3xl p-8 border-l-4 border-teal-500 transition-all duration-700 shadow-xl hover:shadow-2xl ${
                   phase >= 0
-                    ? "opacity-100 translate-x-0 border-[#10d8c4]"
+                    ? "opacity-100 translate-x-0"
                     : "opacity-0 translate-x-10"
                 }`}
-                style={{ transitionDelay: "0ms" }}
               >
-                <div className="flex items-start gap-4">
-                  <div className="w-12 h-12 rounded-xl bg-gradient-to-br from-[#10d8c4] to-[#7467ef] flex items-center justify-center flex-shrink-0 shadow-lg glow-teal">
-                    <div className="w-6 h-6 rounded-full bg-white/90" />
+                <div className="flex items-start gap-5">
+                  <div className="w-14 h-14 rounded-2xl bg-gradient-to-br from-teal-500 to-emerald-500 flex items-center justify-center flex-shrink-0 shadow-lg glow-teal">
+                    <div className="w-7 h-7 rounded-full bg-white" />
                   </div>
                   <div className="flex-1">
-                    <h3 className="text-lg font-semibold text-white mb-2">
+                    <h3 className="text-xl font-bold text-gray-900 mb-2">
                       Household Map
                     </h3>
-                    <p className="text-sm text-white/60 leading-relaxed">
+                    <p className="text-base text-gray-600 leading-relaxed">
                       Add spouse, parents, children—set nominees & guardians.
                       See who owns what at a glance.
                     </p>
@@ -201,17 +192,17 @@ const Hero = () => {
               </div>
 
               <div
-                className={`glass-card glass-card-hover rounded-3xl p-6 border-l-4 transition-all duration-700 ${
+                className={`bg-white rounded-3xl p-8 border-l-4 border-emerald-500 transition-all duration-700 shadow-xl hover:shadow-2xl ${
                   phase >= 1
-                    ? "opacity-100 translate-x-0 border-[#10d8c4]"
+                    ? "opacity-100 translate-x-0"
                     : "opacity-0 translate-x-10"
                 }`}
-                style={{ transitionDelay: "300ms" }}
+                style={{ transitionDelay: "150ms" }}
               >
-                <div className="flex items-start gap-4">
-                  <div className="w-12 h-12 rounded-xl bg-gradient-to-br from-[#10d8c4] to-[#43e97b] flex items-center justify-center flex-shrink-0 shadow-lg glow-teal">
+                <div className="flex items-start gap-5">
+                  <div className="w-14 h-14 rounded-2xl bg-gradient-to-br from-emerald-500 to-teal-500 flex items-center justify-center flex-shrink-0 shadow-lg glow-green">
                     <svg
-                      className="w-6 h-6 text-white"
+                      className="w-7 h-7 text-white"
                       fill="none"
                       viewBox="0 0 24 24"
                       stroke="currentColor"
@@ -225,10 +216,10 @@ const Hero = () => {
                     </svg>
                   </div>
                   <div className="flex-1">
-                    <h3 className="text-lg font-semibold text-white mb-2">
+                    <h3 className="text-xl font-bold text-gray-900 mb-2">
                       Family Members
                     </h3>
-                    <p className="text-sm text-white/60 leading-relaxed">
+                    <p className="text-base text-gray-600 leading-relaxed">
                       Add everyone once. We auto-organise details and link them
                       to the right accounts.
                     </p>
@@ -237,20 +228,17 @@ const Hero = () => {
               </div>
 
               <div
-                className={`glass-card glass-card-hover rounded-3xl p-6 border-l-4 transition-all duration-700 ${
+                className={`bg-white rounded-3xl p-8 border-l-4 border-blue-500 transition-all duration-700 shadow-xl hover:shadow-2xl ${
                   phase >= 2
-                    ? "opacity-100 translate-x-0 border-[#3b82f6]"
+                    ? "opacity-100 translate-x-0"
                     : "opacity-0 translate-x-10"
                 }`}
-                style={{ transitionDelay: "600ms" }}
+                style={{ transitionDelay: "300ms" }}
               >
-                <div className="flex items-start gap-4">
-                  <div
-                    className="w-12 h-12 rounded-xl bg-gradient-to-br from-[#3b82f6] to-[#43e97b] flex items-center justify-center flex-shrink-0 shadow-lg"
-                    style={{ boxShadow: "0 0 20px rgba(59, 130, 246, 0.3)" }}
-                  >
+                <div className="flex items-start gap-5">
+                  <div className="w-14 h-14 rounded-2xl bg-gradient-to-br from-blue-500 to-cyan-500 flex items-center justify-center flex-shrink-0 shadow-lg glow-blue">
                     <svg
-                      className="w-6 h-6 text-white"
+                      className="w-7 h-7 text-white"
                       fill="none"
                       viewBox="0 0 24 24"
                       stroke="currentColor"
@@ -264,10 +252,10 @@ const Hero = () => {
                     </svg>
                   </div>
                   <div className="flex-1">
-                    <h3 className="text-lg font-semibold text-white mb-2">
+                    <h3 className="text-xl font-bold text-gray-900 mb-2">
                       Assets & Accounts
                     </h3>
-                    <p className="text-sm text-white/60 leading-relaxed">
+                    <p className="text-base text-gray-600 leading-relaxed">
                       Banks, Mutual Funds, Insurance, EPF/PPF, Demat—organised
                       in one view.
                     </p>
@@ -276,17 +264,17 @@ const Hero = () => {
               </div>
 
               <div
-                className={`glass-card glass-card-hover rounded-3xl p-6 border-l-4 transition-all duration-700 ${
+                className={`bg-white rounded-3xl p-8 border-l-4 border-orange-500 transition-all duration-700 shadow-xl hover:shadow-2xl ${
                   phase >= 3
-                    ? "opacity-100 translate-x-0 border-[#ffab40]"
+                    ? "opacity-100 translate-x-0"
                     : "opacity-0 translate-x-10"
                 }`}
-                style={{ transitionDelay: "900ms" }}
+                style={{ transitionDelay: "450ms" }}
               >
-                <div className="flex items-start gap-4">
-                  <div className="w-12 h-12 rounded-xl bg-gradient-to-br from-[#ffab40] to-[#ff784b] flex items-center justify-center flex-shrink-0 shadow-lg glow-orange">
+                <div className="flex items-start gap-5">
+                  <div className="w-14 h-14 rounded-2xl bg-gradient-to-br from-orange-500 to-amber-500 flex items-center justify-center flex-shrink-0 shadow-lg glow-orange">
                     <svg
-                      className="w-6 h-6 text-white"
+                      className="w-7 h-7 text-white"
                       fill="none"
                       viewBox="0 0 24 24"
                       stroke="currentColor"
@@ -300,10 +288,10 @@ const Hero = () => {
                     </svg>
                   </div>
                   <div className="flex-1">
-                    <h3 className="text-lg font-semibold text-white mb-2">
+                    <h3 className="text-xl font-bold text-gray-900 mb-2">
                       Family Vault
                     </h3>
-                    <p className="text-sm text-white/60 leading-relaxed">
+                    <p className="text-base text-gray-600 leading-relaxed">
                       Store CAS, policy PDFs, ID/address proofs—searchable,
                       secure, and easy to share.
                     </p>
@@ -312,30 +300,37 @@ const Hero = () => {
               </div>
             </div>
 
-            <div className="mt-8 glass-card rounded-2xl p-6 border border-white/10 bg-gradient-to-br from-white/5 to-transparent">
-              <div className="flex items-center justify-between mb-4">
-                <div className="text-sm font-medium text-white/80">
-                  Hover or tap nodes to explore
+            <div className="mt-8 bg-gradient-to-br from-white/80 to-teal-50/50 backdrop-blur-xl rounded-3xl p-8 border border-teal-200/50 shadow-xl">
+              <div className="flex items-center justify-between mb-5">
+                <div className="flex items-center gap-2">
+                  <Sparkles className="w-5 h-5 text-teal-600" />
+                  <div className="text-sm font-semibold text-gray-700">
+                    Your Journey to Financial Security
+                  </div>
                 </div>
                 <div className="flex gap-2">
-                  <div className="w-2 h-2 rounded-full bg-[#10d8c4] animate-pulse" />
+                  <div className="w-2 h-2 rounded-full bg-teal-500 animate-pulse" />
                   <div
-                    className="w-2 h-2 rounded-full bg-[#43e97b] animate-pulse"
+                    className="w-2 h-2 rounded-full bg-emerald-500 animate-pulse"
                     style={{ animationDelay: "0.2s" }}
                   />
                   <div
-                    className="w-2 h-2 rounded-full bg-[#ffab40] animate-pulse"
+                    className="w-2 h-2 rounded-full bg-blue-500 animate-pulse"
                     style={{ animationDelay: "0.4s" }}
                   />
                 </div>
               </div>
-              <div className="h-1.5 bg-white/10 rounded-full overflow-hidden">
+              <div className="h-3 bg-gray-100 rounded-full overflow-hidden shadow-inner">
                 <div
-                  className="h-full bg-gradient-to-r from-[#10d8c4] via-[#43e97b] to-[#ffab40] rounded-full transition-all duration-1000"
+                  className="h-full bg-gradient-to-r from-teal-500 via-emerald-500 to-blue-500 rounded-full transition-all duration-1000 shadow-lg"
                   style={{
                     width: `${Math.min(((phase + 1) / 4) * 100, 100)}%`,
                   }}
                 />
+              </div>
+              <div className="mt-4 flex items-center justify-between text-xs font-medium text-gray-500">
+                <span>Getting Started</span>
+                <span>{Math.min(((phase + 1) / 4) * 100, 100).toFixed(0)}% Complete</span>
               </div>
             </div>
           </div>
@@ -345,20 +340,13 @@ const Hero = () => {
       <ProgressRing />
 
       <style>{`
-        /* Existing CSS for animations */
         @keyframes gradient {
           0% { background-position: 0% 50%; }
           50% { background-position: 100% 50%; }
           100% { background-position: 0% 50%; }
         }
         .animate-gradient {
-          animation: gradient 6s ease infinite;
-        }
-
-        @keyframes blobFloat {
-          0%, 100% { transform: translate(0, 0) scale(1); }
-          33% { transform: translate(30px, -30px) scale(1.1); }
-          66% { transform: translate(-30px, 30px) scale(0.9); }
+          animation: gradient 8s ease infinite;
         }
 
         @keyframes shimmer {
@@ -367,6 +355,32 @@ const Hero = () => {
         }
         .shimmer {
           animation: shimmer 3s ease-in-out infinite;
+        }
+
+        @keyframes floating-orb {
+          0%, 100% { transform: translate(0, 0) scale(1); opacity: 0.4; }
+          33% { transform: translate(40px, -40px) scale(1.1); opacity: 0.5; }
+          66% { transform: translate(-40px, 40px) scale(0.9); opacity: 0.3; }
+        }
+        .floating-orb {
+          animation: floating-orb 20s ease-in-out infinite;
+        }
+
+        @keyframes floating-shape {
+          0%, 100% { transform: translateY(0px) rotate(0deg); }
+          50% { transform: translateY(-30px) rotate(180deg); }
+        }
+        .floating-shape {
+          animation: floating-shape 15s ease-in-out infinite;
+        }
+
+        @keyframes rotating-shape {
+          0% { transform: rotate(0deg) scale(1); }
+          50% { transform: rotate(180deg) scale(1.1); }
+          100% { transform: rotate(360deg) scale(1); }
+        }
+        .rotating-shape {
+          animation: rotating-shape 20s linear infinite;
         }
       `}</style>
     </div>
