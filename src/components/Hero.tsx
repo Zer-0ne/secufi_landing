@@ -92,17 +92,33 @@ const Hero = () => {
                 : "opacity-0 -translate-x-10"
             }`}
           >
-            <div className="inline-flex items-center gap-2 px-4 py-2.5 glass-card glass-card-hover rounded-full mb-8 border border-white/20">
-              <img
-                src="./Images/logo.jpeg"
-                alt="logo"
-                className="aspect-square h-24 rounded-full"
-              />
-              <span>
-                <span className="block bg-gradient-to-r from-[#10d8c4] via-[#43e97b] to-[#ffab40] bg-clip-text text-transparent bg-[length:200%_auto] animate-gradient text-5xl font-bold">
-                  SecuFi
+            <div className="relative inline-flex items-center gap-3 px-5 py-3 mb-8 group">
+              {/* Gradient border effect */}
+              <div className="absolute inset-0 bg-gradient-to-r from-[#10d8c4] via-[#43e97b] to-[#ffab40] rounded-2xl opacity-60 blur-sm group-hover:opacity-80 transition-opacity duration-300" />
+              <div className="absolute inset-[2px] glass-card rounded-2xl" />
+
+              {/* Animated shimmer overlay */}
+              <div className="absolute inset-0 rounded-2xl overflow-hidden">
+                <div className="absolute inset-0 bg-gradient-to-r from-transparent via-white/10 to-transparent shimmer" />
+              </div>
+
+              {/* Content */}
+              <div className="relative flex items-center gap-3">
+                <div className="relative">
+                  <div className="absolute inset-0 bg-gradient-to-r from-[#10d8c4] to-[#43e97b] rounded-full blur-md opacity-50 group-hover:opacity-70 transition-opacity" />
+                  <img
+                    src="./Images/logo.jpeg"
+                    alt="logo"
+                    className="relative aspect-square h-20 rounded-full border-2 border-white/30 shadow-lg"
+                  />
+                </div>
+                <span className="flex items-center gap-2">
+                  <span className="block bg-gradient-to-r from-[#10d8c4] via-[#43e97b] to-[#ffab40] bg-clip-text text-transparent bg-[length:200%_auto] animate-gradient text-5xl font-bold tracking-tight">
+                    SecuFi
+                  </span>
+                  <Sparkles className="w-6 h-6 text-[#10d8c4] animate-pulse" />
                 </span>
-              </span>
+              </div>
             </div>
 
             <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold mb-6 leading-tight">
@@ -343,6 +359,14 @@ const Hero = () => {
           0%, 100% { transform: translate(0, 0) scale(1); }
           33% { transform: translate(30px, -30px) scale(1.1); }
           66% { transform: translate(-30px, 30px) scale(0.9); }
+        }
+
+        @keyframes shimmer {
+          0% { transform: translateX(-100%); }
+          100% { transform: translateX(100%); }
+        }
+        .shimmer {
+          animation: shimmer 3s ease-in-out infinite;
         }
       `}</style>
     </div>
