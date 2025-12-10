@@ -6,50 +6,58 @@ import {
   Scan,
   Network,
   CheckCircle,
-  Lock,
   FileText,
 } from "lucide-react";
 import { useNavigate } from "react-router-dom";
+
 const steps = [
   {
     number: "01",
-    title: "Create Your Will",
-    description:
-      "Answer simple questions. Our AI creates a legally valid will and maps your family structure.",
-    highlight: "5 minutes",
-    icon: FileText,
-    color: "from-[#ffab40] to-[#ff784b]",
-    glowColor: "rgba(255, 171, 64, 0.3)",
-  },
-  {
-    number: "02",
     title: "Connect & Consent",
     description:
       "Grant access to email and SMS. Our AI scans for bank accounts, insurance policies, and investments.",
     highlight: "Auto-discovery",
     icon: Scan,
-    color: "from-[#43e97b] to-[#009966]",
-    glowColor: "rgba(67, 233, 123, 0.3)",
+    color: "from-emerald-500 to-green-600",
+    bgColor: "from-emerald-50 to-green-50",
+    borderColor: "border-emerald-300",
+    iconColor: "text-emerald-600",
   },
   {
-    number: "03",
+    number: "02",
     title: "Review Your Graph",
     description:
       "See all your assets, nominees, and family relationships unified in one clean dashboard.",
     highlight: "Complete view",
     icon: Network,
-    color: "from-[#10d8c4] to-[#7467ef]",
-    glowColor: "rgba(16, 216, 196, 0.3)",
+    color: "from-teal-500 to-cyan-600",
+    bgColor: "from-teal-50 to-cyan-50",
+    borderColor: "border-teal-300",
+    iconColor: "text-teal-600",
   },
   {
-    number: "04",
+    number: "03",
     title: "Fix & Optimize",
     description:
       "Get alerts for nominee gaps, KYC issues, or compliance problems. Fix them with guided playbooks.",
     highlight: "Stay compliant",
     icon: CheckCircle,
-    color: "from-[#7467ef] to-[#3b82f6]",
-    glowColor: "rgba(116, 103, 239, 0.3)",
+    color: "from-blue-500 to-indigo-600",
+    bgColor: "from-blue-50 to-indigo-50",
+    borderColor: "border-blue-300",
+    iconColor: "text-blue-600",
+  },
+  {
+    number: "04",
+    title: "Create Your Will",
+    description:
+      "Answer simple questions. Our AI creates a legally valid will and maps your family structure.",
+    highlight: "5 minutes",
+    icon: FileText,
+    color: "from-orange-500 to-amber-600",
+    bgColor: "from-orange-50 to-amber-50",
+    borderColor: "border-orange-300",
+    iconColor: "text-orange-600",
   },
   {
     number: "05",
@@ -58,8 +66,10 @@ const steps = [
       "Access your Tax Pack, Claims Kit, and succession documents anytime. Share with advisors securely.",
     highlight: "Always ready",
     icon: Shield,
-    color: "from-[#3b82f6] to-[#10d8c4]",
-    glowColor: "rgba(59, 130, 246, 0.3)",
+    color: "from-cyan-500 to-blue-600",
+    bgColor: "from-cyan-50 to-blue-50",
+    borderColor: "border-cyan-300",
+    iconColor: "text-cyan-600",
   },
 ];
 
@@ -93,33 +103,16 @@ const HowItWorks = () => {
   }, []);
 
   const VisualDisplay = ({ step }: { step: number }) => {
+    const currentStep = steps[step];
+
     switch (step) {
       case 0:
-        return (
-          <div className="w-full h-full flex flex-col items-center justify-center animate-fadeIn">
-            <div className="space-y-4 w-full max-w-sm mb-8">
-              {[...Array(3)].map((_, i) => (
-                <div
-                  key={i}
-                  className="h-16 bg-gradient-to-r from-[#ffab40]/20 to-[#ff784b]/20 rounded-2xl border border-[#ffab40]/30 backdrop-blur-sm animate-slideInRight"
-                  style={{ animationDelay: `${i * 0.15}s` }}
-                />
-              ))}
-            </div>
-            <div className="inline-flex items-center gap-2 px-6 py-3 bg-gradient-to-r from-[#ffab40] to-[#ff784b] rounded-full text-white font-semibold shadow-lg">
-              <FileText className="w-5 h-5" />
-              Creating Will...
-            </div>
-          </div>
-        );
-
-      case 1:
         return (
           <div className="w-full h-full flex flex-col items-center justify-center animate-fadeIn">
             <div className="relative mb-8">
               <div className="absolute inset-0 flex items-center justify-center">
                 <div
-                  className="w-40 h-40 border-4 border-[#43e97b]/30 border-t-[#43e97b] rounded-full animate-spin"
+                  className="w-40 h-40 border-4 border-emerald-300 border-t-emerald-500 rounded-full animate-spin"
                   style={{ animationDuration: "2s" }}
                 />
               </div>
@@ -127,20 +120,20 @@ const HowItWorks = () => {
                 {[...Array(9)].map((_, i) => (
                   <div
                     key={i}
-                    className="w-16 h-16 bg-gradient-to-br from-[#43e97b]/30 to-[#009966]/30 rounded-xl border border-[#43e97b]/40 backdrop-blur-sm animate-pulse"
+                    className="w-16 h-16 bg-gradient-to-br from-emerald-100 to-green-100 rounded-xl border-2 border-emerald-200 animate-pulse shadow-sm"
                     style={{ animationDelay: `${i * 0.1}s` }}
                   />
                 ))}
               </div>
             </div>
-            <div className="inline-flex items-center gap-2 px-6 py-3 bg-gradient-to-r from-[#43e97b] to-[#009966] rounded-full text-white font-semibold shadow-lg">
+            <div className="inline-flex items-center gap-2 px-6 py-3 bg-gradient-to-r from-emerald-500 to-green-600 rounded-2xl text-white font-semibold shadow-lg">
               <Scan className="w-5 h-5 animate-pulse" />
               Scanning Assets...
             </div>
           </div>
         );
 
-      case 2:
+      case 1:
         return (
           <div className="w-full h-full flex flex-col items-center justify-center animate-fadeIn">
             <svg className="w-full h-80 max-w-lg mb-8" viewBox="0 0 400 400">
@@ -165,7 +158,7 @@ const HowItWorks = () => {
                       x2={x}
                       y2={y}
                       stroke="url(#lineGradient)"
-                      strokeWidth="2"
+                      strokeWidth="3"
                       strokeDasharray="5,5"
                       className="animate-dash"
                     />
@@ -189,8 +182,8 @@ const HowItWorks = () => {
                   x2="100%"
                   y2="100%"
                 >
-                  <stop offset="0%" stopColor="#10d8c4" />
-                  <stop offset="100%" stopColor="#7467ef" />
+                  <stop offset="0%" stopColor="#14b8a6" />
+                  <stop offset="100%" stopColor="#0891b2" />
                 </linearGradient>
                 <linearGradient
                   id="nodeGradient"
@@ -199,8 +192,8 @@ const HowItWorks = () => {
                   x2="100%"
                   y2="100%"
                 >
-                  <stop offset="0%" stopColor="#10d8c4" />
-                  <stop offset="100%" stopColor="#3b82f6" />
+                  <stop offset="0%" stopColor="#14b8a6" />
+                  <stop offset="100%" stopColor="#06b6d4" />
                 </linearGradient>
                 <linearGradient
                   id="lineGradient"
@@ -209,19 +202,19 @@ const HowItWorks = () => {
                   x2="100%"
                   y2="0%"
                 >
-                  <stop offset="0%" stopColor="#10d8c4" stopOpacity="0.5" />
-                  <stop offset="100%" stopColor="#7467ef" stopOpacity="0.5" />
+                  <stop offset="0%" stopColor="#14b8a6" stopOpacity="0.6" />
+                  <stop offset="100%" stopColor="#0891b2" stopOpacity="0.6" />
                 </linearGradient>
               </defs>
             </svg>
-            <div className="inline-flex items-center gap-2 px-6 py-3 bg-gradient-to-r from-[#10d8c4] to-[#7467ef] rounded-full text-white font-semibold shadow-lg">
+            <div className="inline-flex items-center gap-2 px-6 py-3 bg-gradient-to-r from-teal-500 to-cyan-600 rounded-2xl text-white font-semibold shadow-lg">
               <Network className="w-5 h-5" />
               Building Graph...
             </div>
           </div>
         );
 
-      case 3:
+      case 2:
         return (
           <div className="w-full h-full flex flex-col items-center justify-center animate-fadeIn">
             <div className="space-y-4 w-full max-w-md mb-8">
@@ -232,24 +225,43 @@ const HowItWorks = () => {
               ].map((item, i) => (
                 <div
                   key={i}
-                  className="flex items-center justify-between p-6 bg-white/5 backdrop-blur-sm rounded-2xl border border-[#7467ef]/30 animate-slideInRight"
+                  className="flex items-center justify-between p-6 bg-white rounded-2xl border-2 border-blue-200 shadow-sm animate-slideInRight"
                   style={{ animationDelay: `${i * 0.15}s` }}
                 >
-                  <span className="text-white/90 font-medium">
+                  <span className="text-gray-800 font-semibold">
                     {item.label}
                   </span>
                   <div className="flex items-center gap-2">
-                    <CheckCircle className="w-5 h-5 text-[#43e97b]" />
-                    <span className="px-4 py-2 bg-gradient-to-r from-[#43e97b] to-[#009966] rounded-full text-white text-sm font-semibold">
+                    <CheckCircle className="w-5 h-5 text-emerald-500" />
+                    <span className="px-4 py-2 bg-gradient-to-r from-emerald-500 to-green-600 rounded-full text-white text-sm font-semibold shadow-sm">
                       {item.status}
                     </span>
                   </div>
                 </div>
               ))}
             </div>
-            <div className="inline-flex items-center gap-2 px-6 py-3 bg-gradient-to-r from-[#7467ef] to-[#3b82f6] rounded-full text-white font-semibold shadow-lg">
+            <div className="inline-flex items-center gap-2 px-6 py-3 bg-gradient-to-r from-blue-500 to-indigo-600 rounded-2xl text-white font-semibold shadow-lg">
               <CheckCircle className="w-5 h-5" />
               All Systems Go!
+            </div>
+          </div>
+        );
+
+      case 3:
+        return (
+          <div className="w-full h-full flex flex-col items-center justify-center animate-fadeIn">
+            <div className="space-y-4 w-full max-w-sm mb-8">
+              {[...Array(3)].map((_, i) => (
+                <div
+                  key={i}
+                  className="h-16 bg-gradient-to-r from-orange-100 to-amber-100 rounded-2xl border-2 border-orange-200 shadow-sm animate-slideInRight"
+                  style={{ animationDelay: `${i * 0.15}s` }}
+                />
+              ))}
+            </div>
+            <div className="inline-flex items-center gap-2 px-6 py-3 bg-gradient-to-r from-orange-500 to-amber-600 rounded-2xl text-white font-semibold shadow-lg">
+              <FileText className="w-5 h-5" />
+              Creating Will...
             </div>
           </div>
         );
@@ -259,11 +271,11 @@ const HowItWorks = () => {
           <div className="w-full h-full flex flex-col items-center justify-center animate-fadeIn">
             <div className="relative mb-8">
               <div className="absolute inset-0 flex items-center justify-center">
-                <div className="w-64 h-64 rounded-full bg-gradient-to-r from-[#3b82f6]/20 to-[#10d8c4]/20 blur-2xl animate-pulse" />
+                <div className="w-64 h-64 rounded-full bg-gradient-to-r from-cyan-200 to-blue-200 blur-2xl animate-pulse" />
               </div>
               <div className="relative flex items-center justify-center h-48">
-                <div className="w-32 h-32 rounded-full bg-gradient-to-br from-[#3b82f6] to-[#10d8c4] flex items-center justify-center shadow-2xl animate-bounce">
-                  <Lock className="w-16 h-16 text-white" />
+                <div className="w-32 h-32 rounded-full bg-gradient-to-br from-cyan-500 to-blue-600 flex items-center justify-center shadow-2xl animate-bounce">
+                  <Shield className="w-16 h-16 text-white" />
                 </div>
               </div>
             </div>
@@ -271,16 +283,16 @@ const HowItWorks = () => {
               {["Tax Pack", "Claims Kit", "Documents"].map((item, i) => (
                 <div
                   key={i}
-                  className="p-4 bg-gradient-to-br from-[#3b82f6]/20 to-[#10d8c4]/20 rounded-xl border border-[#3b82f6]/30 backdrop-blur-sm text-center animate-fadeIn"
+                  className="p-4 bg-gradient-to-br from-cyan-100 to-blue-100 rounded-xl border-2 border-cyan-200 shadow-sm text-center animate-fadeIn"
                   style={{ animationDelay: `${i * 0.15}s` }}
                 >
-                  <div className="text-sm text-white/80 font-medium">
+                  <div className="text-sm text-gray-700 font-semibold">
                     {item}
                   </div>
                 </div>
               ))}
             </div>
-            <div className="inline-flex items-center gap-2 px-6 py-3 bg-gradient-to-r from-[#3b82f6] to-[#10d8c4] rounded-full text-white font-semibold shadow-lg">
+            <div className="inline-flex items-center gap-2 px-6 py-3 bg-gradient-to-r from-cyan-500 to-blue-600 rounded-2xl text-white font-semibold shadow-lg">
               <Shield className="w-5 h-5" />
               Protected & Ready
             </div>
@@ -293,44 +305,42 @@ const HowItWorks = () => {
   };
 
   return (
-    <section className="relative py-32 px-6 bg-gradient-to-b from-[#0f1729] via-[#1a2540] to-[#0f1729] overflow-hidden">
-      <div className="absolute inset-0 opacity-10">
-        {[...Array(30)].map((_, i) => (
-          <div
-            key={i}
-            className="absolute w-1 h-1 bg-white rounded-full"
-            style={{
-              left: `${Math.random() * 100}%`,
-              top: `${Math.random() * 100}%`,
-              animation: `twinkle ${
-                3 + Math.random() * 4
-              }s ease-in-out infinite`,
-              animationDelay: `${Math.random() * 2}s`,
-            }}
-          />
-        ))}
+    <section className="relative py-32 px-6 bg-gradient-to-b from-gray-50 via-white to-gray-50 overflow-hidden">
+      <div className="absolute inset-0 opacity-[0.03]">
+        <div
+          className="absolute inset-0"
+          style={{
+            backgroundImage: `radial-gradient(circle at 1px 1px, rgb(16, 216, 196) 1px, transparent 0)`,
+            backgroundSize: "50px 50px",
+          }}
+        />
       </div>
 
-      <div className="absolute top-1/4 -left-48 w-[600px] h-[600px] bg-gradient-to-r from-[#43e97b]/10 to-[#10d8c4]/10 rounded-full blur-[150px]" />
-      <div className="absolute bottom-1/4 -right-48 w-[600px] h-[600px] bg-gradient-to-r from-[#7467ef]/10 to-[#ffab40]/10 rounded-full blur-[150px]" />
+      <div className="absolute top-0 right-0 w-[600px] h-[600px] bg-gradient-to-bl from-teal-100/50 to-transparent rounded-full blur-3xl" />
+      <div className="absolute bottom-0 left-0 w-[600px] h-[600px] bg-gradient-to-tr from-blue-100/50 to-transparent rounded-full blur-3xl" />
 
       <div className="relative max-w-7xl mx-auto">
         <div className="text-center mb-20">
-          <h2 className="text-4xl md:text-5xl lg:text-6xl font-bold mb-6">
-            <span className="text-white">How </span>
-            <span className="bg-gradient-to-r from-[#10d8c4] via-[#43e97b] to-[#7467ef] bg-clip-text text-transparent">
+          <div className="inline-flex items-center gap-2 px-5 py-2 bg-gradient-to-r from-teal-50 to-emerald-50 border border-teal-200 rounded-full mb-6">
+            <Sparkles className="w-4 h-4 text-teal-600" />
+            <span className="text-sm font-semibold text-teal-700">Step by Step Guide</span>
+          </div>
+
+          <h2 className="text-5xl md:text-6xl lg:text-7xl font-bold mb-6">
+            <span className="text-gray-900">How </span>
+            <span className="bg-gradient-to-r from-teal-600 via-emerald-600 to-blue-600 bg-clip-text text-transparent">
               SecuFi
             </span>
-            <span className="text-white"> Works</span>
+            <span className="text-gray-900"> Works</span>
           </h2>
-          <p className="text-xl text-white/70 max-w-2xl mx-auto leading-relaxed">
+          <p className="text-xl text-gray-600 max-w-2xl mx-auto leading-relaxed">
             From setup to protection in minutes. Watch AI transform your
             financial legacy.
           </p>
         </div>
 
         <div className="grid lg:grid-cols-2 gap-16 items-start">
-          <div className="space-y-8">
+          <div className="space-y-6">
             {steps.map((step, index) => {
               const isActive = activeStep === index;
               const isPassed = activeStep > index;
@@ -342,20 +352,17 @@ const HowItWorks = () => {
                   className="scroll-mt-32"
                 >
                   <div
-                    className={`relative glass-card rounded-3xl p-8 border transition-all duration-500 ${
+                    className={`relative bg-white rounded-3xl p-8 border-2 transition-all duration-500 shadow-lg ${
                       isActive
-                        ? "border-white/30 shadow-2xl scale-100"
-                        : "border-white/10 scale-95 opacity-70"
+                        ? `${step.borderColor} shadow-2xl scale-100`
+                        : "border-gray-200 scale-95 opacity-80"
                     }`}
                   >
-                    <div className="flex items-start gap-6">
+                    <div className={`absolute inset-0 bg-gradient-to-br ${step.bgColor} rounded-3xl opacity-0 transition-opacity duration-500 ${isActive ? 'opacity-100' : ''}`} />
+
+                    <div className="relative flex items-start gap-6">
                       <div
-                        className={`w-16 h-16 rounded-2xl bg-gradient-to-br ${step.color} p-4 flex-shrink-0 transition-all duration-500`}
-                        style={{
-                          boxShadow: isActive
-                            ? `0 20px 60px ${step.glowColor}`
-                            : "none",
-                        }}
+                        className={`w-16 h-16 rounded-2xl bg-gradient-to-br ${step.color} p-4 flex-shrink-0 transition-all duration-500 shadow-lg ${isActive ? 'scale-110' : ''}`}
                       >
                         <step.icon
                           className={`w-full h-full text-white ${
@@ -368,14 +375,14 @@ const HowItWorks = () => {
                         <div className="flex items-center gap-3 mb-3">
                           <span
                             className={`text-sm font-bold transition-colors duration-500 ${
-                              isActive ? "text-[#10d8c4]" : "text-white/50"
+                              isActive ? step.iconColor : "text-gray-400"
                             }`}
                           >
                             {step.number}
                           </span>
                           <h3
                             className={`text-xl font-bold transition-colors duration-500 ${
-                              isActive ? "text-white" : "text-white/60"
+                              isActive ? "text-gray-900" : "text-gray-500"
                             }`}
                           >
                             {step.title}
@@ -383,54 +390,54 @@ const HowItWorks = () => {
                         </div>
 
                         <p
-                          className={`text-sm leading-relaxed mb-4 transition-colors duration-500 ${
-                            isActive ? "text-white/80" : "text-white/50"
+                          className={`text-base leading-relaxed mb-4 transition-colors duration-500 ${
+                            isActive ? "text-gray-700" : "text-gray-500"
                           }`}
                         >
                           {step.description}
                         </p>
 
                         <span
-                          className={`inline-flex items-center gap-2 px-4 py-2 rounded-full text-xs font-semibold transition-all duration-500 ${
+                          className={`inline-flex items-center gap-2 px-4 py-2 rounded-full text-sm font-semibold transition-all duration-500 ${
                             isActive
-                              ? "bg-gradient-to-r from-[#10d8c4]/20 to-[#7467ef]/20 text-[#10d8c4] border border-[#10d8c4]/30"
-                              : "bg-white/5 text-white/50 border border-white/10"
+                              ? `bg-gradient-to-r ${step.bgColor} ${step.iconColor} border-2 ${step.borderColor}`
+                              : "bg-gray-100 text-gray-500 border-2 border-gray-200"
                           }`}
                         >
-                          {isActive && <Sparkles className="w-3 h-3" />}
+                          {isActive && <Sparkles className="w-4 h-4" />}
                           {step.highlight}
                         </span>
                       </div>
 
                       {isPassed && (
-                        <div className="w-8 h-8 rounded-full bg-gradient-to-br from-[#43e97b] to-[#009966] flex items-center justify-center flex-shrink-0 animate-fadeIn">
-                          <CheckCircle className="w-5 h-5 text-white" />
+                        <div className="w-10 h-10 rounded-full bg-gradient-to-br from-emerald-500 to-green-600 flex items-center justify-center flex-shrink-0 animate-fadeIn shadow-lg">
+                          <CheckCircle className="w-6 h-6 text-white" />
                         </div>
                       )}
                     </div>
-
-                    {isActive && (
-                      <div className="absolute -inset-0.5 bg-gradient-to-r from-[#10d8c4] via-[#7467ef] to-[#10d8c4] rounded-3xl opacity-20 blur-xl -z-10" />
-                    )}
                   </div>
                 </div>
               );
             })}
 
             <div className="mt-8">
-              <div className="h-2 bg-white/10 rounded-full overflow-hidden">
+              <div className="h-3 bg-gray-200 rounded-full overflow-hidden shadow-inner">
                 <div
-                  className="h-full bg-gradient-to-r from-[#10d8c4] via-[#43e97b] to-[#7467ef] transition-all duration-500 rounded-full"
+                  className="h-full bg-gradient-to-r from-teal-500 via-emerald-500 to-blue-500 transition-all duration-500 rounded-full shadow-lg"
                   style={{
                     width: `${((activeStep + 1) / steps.length) * 100}%`,
                   }}
                 />
               </div>
+              <div className="mt-3 flex items-center justify-between text-sm font-semibold text-gray-600">
+                <span>Getting Started</span>
+                <span>{Math.min(((activeStep + 1) / steps.length) * 100, 100).toFixed(0)}% Complete</span>
+              </div>
             </div>
           </div>
 
           <div className="hidden lg:block sticky top-32">
-            <div className="glass-card rounded-3xl p-12 border border-white/20 min-h-[600px] flex items-center justify-center">
+            <div className="bg-white/80 backdrop-blur-xl rounded-3xl p-12 border-2 border-gray-200 shadow-2xl min-h-[600px] flex items-center justify-center">
               <VisualDisplay step={activeStep} />
             </div>
           </div>
@@ -439,7 +446,7 @@ const HowItWorks = () => {
         <div className="text-center mt-20">
           <a
             href="https://secufi-client.vercel.app/login"
-            className="group px-10 py-5 bg-gradient-to-r from-[#43e97b] to-[#009966] rounded-full font-semibold text-lg text-white transition-all duration-300 transform hover:scale-105 shadow-xl inline-flex items-center gap-3"
+            className="group px-10 py-5 bg-gradient-to-r from-teal-500 to-emerald-500 rounded-2xl font-semibold text-lg text-white transition-all duration-300 transform hover:scale-105 shadow-xl hover:shadow-2xl inline-flex items-center gap-3"
           >
             Get Started Now
             <ArrowRight className="w-5 h-5 group-hover:translate-x-2 transition-transform" />
@@ -448,11 +455,6 @@ const HowItWorks = () => {
       </div>
 
       <style>{`
-        @keyframes twinkle {
-          0%, 100% { opacity: 0.2; transform: scale(1); }
-          50% { opacity: 1; transform: scale(1.5); }
-        }
-
         @keyframes fadeIn {
           from { opacity: 0; transform: scale(0.9); }
           to { opacity: 1; transform: scale(1); }
