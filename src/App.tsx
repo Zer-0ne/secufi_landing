@@ -8,6 +8,7 @@ import { useState } from "react";
 import Form from "./components/Form.tsx";
 import AdvisorSignup from "./pages/AdvisorSignup";
 import ScheduleDemo from "./pages/ScheduleDemo";
+import AllFeatures from "./pages/AllFeatures";
 
 function App() {
   return (
@@ -28,6 +29,7 @@ function App() {
       <Route path="/contact" element={<Form />} />
       <Route path="/advisor-signup" element={<AdvisorSignup />} />
       <Route path="/schedule-demo" element={<ScheduleDemo />} />
+      <Route path="/features" element={<AllFeatures />} />
     </Routes>
   );
 }

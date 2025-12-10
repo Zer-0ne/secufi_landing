@@ -210,8 +210,8 @@ const Features = () => {
         </div>
 
         <div className="mt-20 text-center">
-          <a
-            href="https://secufi-client.vercel.app/login"
+          <button
+            onClick={() => navigate("/features")}
             className="group relative px-10 py-5 bg-gradient-to-r from-teal-500 to-emerald-500 rounded-2xl font-semibold text-lg text-white overflow-hidden transition-all duration-300 transform hover:scale-105 shadow-xl hover:shadow-2xl inline-flex items-center justify-center gap-2"
           >
             <span className="relative z-10 flex items-center justify-center gap-2">
@@ -231,7 +231,7 @@ const Features = () => {
               </svg>
             </span>
             <div className="absolute inset-0 bg-gradient-to-r from-teal-600 to-emerald-600 opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
-          </a>
+          </button>
         </div>
       </div>
     </section>
