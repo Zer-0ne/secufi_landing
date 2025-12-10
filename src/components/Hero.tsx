@@ -136,12 +136,6 @@ const Hero = () => {
                 </span>
                 <div className="absolute inset-0 bg-gradient-to-r from-teal-600 to-emerald-600 opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
               </a>
-              <button
-                onClick={() => navigate("/contact")}
-                className="px-10 py-5 bg-white border-2 border-gray-200 hover:border-teal-300 rounded-2xl font-semibold text-lg text-gray-700 hover:text-teal-600 transition-all duration-300 shadow-sm hover:shadow-xl"
-              >
-                Watch Demo
-              </button>
             </div>
 
             <div className="flex flex-wrap gap-3">

@@ -210,37 +210,28 @@ const Features = () => {
         </div>
 
         <div className="mt-20 text-center">
-          <div className="inline-flex flex-col sm:flex-row gap-4">
-            <a
-              href="https://secufi-client.vercel.app/login"
-              className="group relative px-10 py-5 bg-gradient-to-r from-teal-500 to-emerald-500 rounded-2xl font-semibold text-lg text-white overflow-hidden transition-all duration-300 transform hover:scale-105 shadow-xl hover:shadow-2xl"
-            >
-              <span className="relative z-10 flex items-center justify-center gap-2">
-                Explore All Features
-                <svg
-                  className="w-5 h-5 group-hover:translate-x-1 transition-transform"
-                  fill="none"
-                  viewBox="0 0 24 24"
-                  stroke="currentColor"
-                >
-                  <path
-                    strokeLinecap="round"
-                    strokeLinejoin="round"
-                    strokeWidth={2}
-                    d="M13 7l5 5m0 0l-5 5m5-5H6"
-                  />
-                </svg>
-              </span>
-              <div className="absolute inset-0 bg-gradient-to-r from-teal-600 to-emerald-600 opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
-            </a>
-
-            <button
-              onClick={() => navigate("/contact")}
-              className="px-10 py-5 bg-white border-2 border-gray-200 hover:border-teal-300 rounded-2xl font-semibold text-lg text-gray-700 hover:text-teal-600 transition-all duration-300 shadow-sm hover:shadow-xl"
-            >
-              Schedule a Demo
-            </button>
-          </div>
+          <a
+            href="https://secufi-client.vercel.app/login"
+            className="group relative px-10 py-5 bg-gradient-to-r from-teal-500 to-emerald-500 rounded-2xl font-semibold text-lg text-white overflow-hidden transition-all duration-300 transform hover:scale-105 shadow-xl hover:shadow-2xl inline-flex items-center justify-center gap-2"
+          >
+            <span className="relative z-10 flex items-center justify-center gap-2">
+              Explore All Features
+              <svg
+                className="w-5 h-5 group-hover:translate-x-1 transition-transform"
+                fill="none"
+                viewBox="0 0 24 24"
+                stroke="currentColor"
+              >
+                <path
+                  strokeLinecap="round"
+                  strokeLinejoin="round"
+                  strokeWidth={2}
+                  d="M13 7l5 5m0 0l-5 5m5-5H6"
+                />
+              </svg>
+            </span>
+            <div className="absolute inset-0 bg-gradient-to-r from-teal-600 to-emerald-600 opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
+          </a>
         </div>
       </div>
     </section>
