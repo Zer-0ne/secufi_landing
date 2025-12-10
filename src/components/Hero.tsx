@@ -24,7 +24,7 @@ const Hero = () => {
     setIsVisible(true);
     setShowAnimation(isPlatformAllowedForAnimation());
 
-    const phaseTimings = [0, 2500, 5000, 7500];
+    const phaseTimings = [0, 1000, 2000, 3000];
     const timers = phaseTimings.map((delay, index) =>
       setTimeout(() => setPhase(index), delay)
     );
@@ -120,7 +120,7 @@ const Hero = () => {
             </h1>
 
             <p className="text-xl md:text-2xl text-gray-600 mb-10 leading-relaxed max-w-xl">
-              See all your money in one place, keep important papers safe, and
+              See all your assets in one place, keep important papers safe, and
               get a Readiness Score that guides you to fix nominee & KYC gaps—so
               your family is always prepared.
             </p>
@@ -149,12 +149,6 @@ const Hero = () => {
                 <Check className="w-4 h-4 text-teal-600" />
                 <div className="text-sm font-medium text-gray-700">
                   Encrypted, India-hosted
-                </div>
-              </div>
-              <div className="flex items-center gap-2 bg-white rounded-xl px-5 py-3 border border-gray-200 shadow-sm">
-                <Check className="w-4 h-4 text-teal-600" />
-                <div className="text-sm font-medium text-gray-700">
-                  AI-assisted
                 </div>
               </div>
             </div>
