@@ -10,6 +10,7 @@ import {
   CheckCircle2,
   ArrowLeft,
 } from "lucide-react";
+import { submitPartnerSignup } from "../utils/api";
 
 
 const AdvisorSignup = () => {
@@ -67,8 +68,16 @@ const AdvisorSignup = () => {
     setError("");
 
     try {
-
-
+      const apiData = {
+        name: formData.name,
+        email: formData.email,
+        phone: formData.phone,
+        role: formData.advisorType,
+        company_name: formData.companyName,
+        additional_info: formData.message,
+      };
+      
+      await submitPartnerSignup(apiData);
       setIsSuccess(true);
       setFormData({
         name: "",
@@ -293,14 +302,14 @@ const AdvisorSignup = () => {
                         className="w-full px-4 py-3 border-2 border-gray-200 rounded-xl focus:border-teal-500 focus:outline-none transition-colors text-gray-900 bg-white"
                       >
                         <option value="">Select your role</option>
-                        <option value="MFD">
+                        <option value="MUTUAL_FUND_DISTRIBUTOR">
                           Mutual Fund Distributor (MFD)
                         </option>
-                        <option value="CA">Chartered Accountant (CA)</option>
-                        <option value="Financial Planner">
+                        <option value="CHARTERED_ACCOUNTANT">Chartered Accountant (CA)</option>
+                        <option value="FINANCIAL_PLANNER">
                           Financial Planner
                         </option>
-                        <option value="Insurance Advisor">
+                        <option value="INSURANCE_ADVISOR">
                           Insurance Advisor
                         </option>
                         <option value="Other">Other</option>
