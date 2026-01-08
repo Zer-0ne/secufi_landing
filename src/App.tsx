@@ -3,7 +3,6 @@ import Features from "./components/Features";
 import HowItWorks from "./components/HowItWorks";
 import ForAdvisors from "./components/ForAdvisors";
 import CTA from "./components/CTA";
-import Header from "./components/Header";
 import { Routes, Route } from "react-router-dom";
 import Form from "./components/Form.tsx";
 import AdvisorSignup from "./pages/AdvisorSignup";
@@ -19,7 +18,6 @@ function App() {
         path="/"
         element={
           <div className="min-h-screen bg-[#0a0a0f] text-white overflow-hidden">
-            <Header />
             <Hero />
             <Features />
             <HowItWorks />

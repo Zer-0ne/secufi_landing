@@ -1,6 +1,5 @@
 import { useEffect } from "react";
 import { Link } from "react-router-dom";
-import Header from "../components/Header";
 import Footer from "../components/Footer";
 import { setPageMetadata } from "../utils/seo";
 
@@ -16,7 +15,6 @@ const PrivacyPolicy = () => {
 
   return (
     <div className="min-h-screen bg-gradient-to-br from-blue-50 via-teal-50 to-emerald-50 text-gray-900">
-      <Header />
       <main id="top" className="relative max-w-5xl mx-auto px-6 py-16">
         <div className="mb-10">
           <p className="text-sm font-semibold text-teal-700 uppercase tracking-[0.2em]">
