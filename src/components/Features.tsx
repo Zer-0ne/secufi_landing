@@ -135,7 +135,10 @@ const Features = () => {
   }, []);
 
   return (
-    <section className="relative py-32 px-6 bg-gradient-to-b from-white via-gray-50 to-white overflow-hidden">
+    <section
+      id="features"
+      className="relative py-32 px-6 bg-gradient-to-b from-white via-gray-50 to-white overflow-hidden"
+    >
       <div className="absolute inset-0 opacity-[0.02]">
         <div
           className="absolute inset-0"

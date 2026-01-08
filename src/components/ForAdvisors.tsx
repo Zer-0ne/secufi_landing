@@ -29,7 +29,10 @@ const ForAdvisors = () => {
     const navigate=useNavigate();
 
   return (
-    <section className="relative py-32 px-6 bg-blue-50 overflow-hidden">
+    <section
+      id="for-advisors"
+      className="relative py-32 px-6 bg-blue-50 overflow-hidden"
+    >
       <div className="absolute inset-0">
         <div className="absolute top-0 left-1/4 w-96 h-96 bg-blue-200 rounded-full blur-[150px] opacity-30 animate-pulse" style={{ animationDuration: '6s' }} />
         <div className="absolute bottom-0 right-1/4 w-96 h-96 bg-teal-200 rounded-full blur-[150px] opacity-30 animate-pulse" style={{ animationDelay: '3s', animationDuration: '6s' }} />
