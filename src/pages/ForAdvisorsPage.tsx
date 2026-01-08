@@ -2,6 +2,7 @@ import { useEffect } from "react";
 import Footer from "../components/Footer";
 import { setPageMetadata } from "../utils/seo";
 import { TrendingUp, Compass, Sparkles } from "lucide-react";
+import { useNavigate } from "react-router-dom";
 
 const advisorBenefits = [
   {
@@ -22,12 +23,13 @@ const advisorBenefits = [
 ];
 
 const ForAdvisorsPage = () => {
+  const navigate = useNavigate();
   useEffect(() => {
     setPageMetadata({
       title: "SecuFi for Advisors",
       description:
         "Discover how SecuFi helps advisors unlock portfolio visibility and proactive client insights.",
-      canonical: "https://www.secufi.in/for-advisors",
+      canonical: "https://www.secufi.in/advisors",
     });
   }, []);
 
@@ -54,6 +56,12 @@ const ForAdvisorsPage = () => {
             SecuFi equips advisors with consent-based insights so you can guide
             families toward stronger financial readiness while building trust.
           </p>
+          <div className="mt-6 text-gray-600">
+            <p className="font-semibold text-gray-900">Built for</p>
+            <p>• Mutual Fund Distributors (MFDs)</p>
+            <p>• Registered Investment Advisors (RIAs)</p>
+            <p>• Chartered Accountants (CAs)</p>
+          </div>
 
           <div className="mt-12 grid md:grid-cols-3 gap-6">
             {advisorBenefits.map((benefit) => (
@@ -88,6 +96,15 @@ const ForAdvisorsPage = () => {
               <Sparkles className="w-4 h-4" />
               Client-ready insights
             </div>
+          </div>
+          <div className="mt-10">
+            <button
+              type="button"
+              onClick={() => navigate("/schedule-demo")}
+              className="px-8 py-4 bg-gradient-to-r from-blue-600 to-teal-600 text-white rounded-full font-semibold text-lg hover:shadow-xl transition-all duration-300 transform hover:scale-105"
+            >
+              Schedule Demo
+            </button>
           </div>
         </div>
       </main>

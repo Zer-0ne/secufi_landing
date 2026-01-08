@@ -6,27 +6,27 @@ import { ShieldCheck, Lock, Eye, Server } from "lucide-react";
 const securityHighlights = [
   {
     icon: ShieldCheck,
-    title: "Defense-in-depth",
+    title: "HTTPS everywhere",
     description:
-      "Layered safeguards protect sensitive data across storage, access, and monitoring.",
+      "All traffic is protected with HTTPS to keep data secure in transit.",
   },
   {
     icon: Lock,
-    title: "Consent-first access",
+    title: "Encryption at rest & transit",
     description:
-      "Data access is granted only after explicit user consent and can be revoked any time.",
+      "Sensitive data is encrypted both while stored and while moving across systems.",
   },
   {
     icon: Eye,
-    title: "Transparency",
+    title: "Google OAuth consent-based access",
     description:
-      "We keep you informed on how data is used and why it is required for the Services.",
+      "Access to Google data is only granted after explicit consent and can be revoked any time.",
   },
   {
     icon: Server,
-    title: "Reliable infrastructure",
+    title: "No data selling or ads",
     description:
-      "Systems are designed for high availability with continuous monitoring and backups.",
+      "SecuFi does not sell user data and does not run advertising based on your data.",
   },
 ];
 
@@ -62,8 +62,9 @@ const Security = () => {
           </h1>
           <p className="mt-6 text-lg text-gray-600 max-w-3xl leading-relaxed">
             Protecting your family’s financial information is central to
-            everything we do. We combine secure infrastructure, clear consent
-            flows, and continuous monitoring to keep your data safe.
+            everything we do. Our security approach aligns with the principles
+            described in the Privacy Policy and keeps access transparent and
+            consent-based.
           </p>
 
           <div className="mt-12 grid md:grid-cols-2 gap-8">

@@ -371,14 +371,14 @@ const AdvisorSignup = () => {
                     <p className="text-center text-xs text-gray-500">
                       By signing up, you agree to our{" "}
                       <Link
-                        to="/terms-of-service"
+                        to="/legal#terms"
                         className="text-teal-600 font-semibold hover:text-teal-700"
                       >
                         Terms of Service
                       </Link>{" "}
                       and{" "}
                       <Link
-                        to="/privacy-policy"
+                        to="/legal#privacy"
                         className="text-teal-600 font-semibold hover:text-teal-700"
                       >
                         Privacy Policy
