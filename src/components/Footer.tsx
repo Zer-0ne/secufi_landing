@@ -3,7 +3,7 @@ import { Shield } from "lucide-react";
 
 const Footer = () => {
   return (
-    <footer className="mt-20 pt-12 border-t border-gray-200">
+    <footer className="relative z-20 pointer-events-auto mt-20 pt-12 border-t border-gray-200">
       <div className="flex flex-col md:flex-row justify-between items-center gap-8">
         <Link to="/" className="flex items-center gap-3 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-teal-500 focus-visible:ring-offset-2 focus-visible:ring-offset-white rounded-lg">
           <div className="w-10 h-10 rounded-lg bg-gradient-to-br from-teal-500 to-blue-500 flex items-center justify-center shadow-md">
