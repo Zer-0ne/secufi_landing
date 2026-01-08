@@ -100,7 +100,7 @@ const ForAdvisorsPage = () => {
           <div className="mt-10">
             <button
               type="button"
-              onClick={() => navigate("/schedule-demo")}
+              onClick={() => navigate("/advisor-signup")}
               className="px-8 py-4 bg-gradient-to-r from-blue-600 to-teal-600 text-white rounded-full font-semibold text-lg hover:shadow-xl transition-all duration-300 transform hover:scale-105"
             >
               Schedule Demo

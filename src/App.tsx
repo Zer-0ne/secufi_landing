@@ -6,7 +6,6 @@ import CTA from "./components/CTA";
 import { Routes, Route, Navigate } from "react-router-dom";
 import Form from "./components/Form.tsx";
 import AdvisorSignup from "./pages/AdvisorSignup";
-import ScheduleDemo from "./pages/ScheduleDemo";
 import AllFeatures from "./pages/AllFeatures";
 import About from "./pages/About";
 import Security from "./pages/Security";
@@ -31,7 +30,6 @@ function App() {
 
       <Route path="/contact" element={<Form />} />
       <Route path="/advisor-signup" element={<AdvisorSignup />} />
-      <Route path="/schedule-demo" element={<ScheduleDemo />} />
       <Route path="/features" element={<AllFeatures />} />
       <Route path="/legal" element={<Legal />} />
       <Route

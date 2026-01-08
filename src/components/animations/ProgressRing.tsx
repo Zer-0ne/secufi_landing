@@ -84,15 +84,15 @@ const ProgressRing = () => {
   return (
     <div
       className={`fixed bottom-4 right-4 sm:bottom-8 sm:right-8 z-50 transition-all duration-1000 ${isVisible ? 'opacity-100 scale-100' : 'opacity-0 scale-50'
-        }`}
+        } ${shouldShowExpanded ? 'pointer-events-auto' : 'pointer-events-none'}`}
     >
       <div className="relative" ref={containerRef}>
         <div className="absolute inset-0 bg-gradient-to-br from-teal-400/30 to-blue-400/30 rounded-3xl blur-2xl scale-110" />
 
         <div
-          className={`relative bg-white/95 backdrop-blur-xl rounded-3xl shadow-2xl border-2 border-teal-200/50 hover:border-teal-300/70 transition-all duration-500 hover:shadow-teal-200/50 hover:shadow-3xl cursor-pointer ${shouldShowExpanded
-              ? "p-4 sm:p-6 w-auto min-w-[200px] sm:min-w-[280px]"
-              : "p-2 w-16 h-16 sm:w-20 sm:h-20"
+          className={`relative bg-white/95 backdrop-blur-xl rounded-3xl shadow-2xl border-2 border-teal-200/50 hover:border-teal-300/70 transition-all duration-500 hover:shadow-teal-200/50 hover:shadow-3xl ${shouldShowExpanded
+              ? "p-4 sm:p-6 w-auto min-w-[200px] sm:min-w-[280px] pointer-events-none"
+              : "p-2 w-16 h-16 sm:w-20 sm:h-20 pointer-events-auto cursor-pointer"
             }`}
           onClick={(e) => {
             e.stopPropagation();

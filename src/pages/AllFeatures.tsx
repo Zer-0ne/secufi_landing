@@ -457,7 +457,7 @@ const AllFeatures = () => {
                 </a>
 
                 <button
-                  onClick={() => navigate("/schedule-demo")}
+                  onClick={() => navigate("/advisor-signup")}
                   className="px-10 py-5 bg-white border-2 border-teal-500 text-teal-600 rounded-2xl font-semibold text-lg hover:bg-teal-50 transition-all duration-300"
                 >
                   Schedule a Demo
