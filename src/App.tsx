@@ -10,6 +10,9 @@ import ScheduleDemo from "./pages/ScheduleDemo";
 import AllFeatures from "./pages/AllFeatures";
 import PrivacyPolicy from "./pages/PrivacyPolicy";
 import TermsOfService from "./pages/TermsOfService";
+import About from "./pages/About";
+import Security from "./pages/Security";
+import ForAdvisorsPage from "./pages/ForAdvisorsPage";
 
 function App() {
   return (
@@ -33,6 +36,9 @@ function App() {
       <Route path="/features" element={<AllFeatures />} />
       <Route path="/privacy-policy" element={<PrivacyPolicy />} />
       <Route path="/terms-of-service" element={<TermsOfService />} />
+      <Route path="/about" element={<About />} />
+      <Route path="/security" element={<Security />} />
+      <Route path="/for-advisors" element={<ForAdvisorsPage />} />
     </Routes>
   );
 }
