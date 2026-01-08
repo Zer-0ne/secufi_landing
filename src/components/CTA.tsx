@@ -10,7 +10,7 @@ const CTA = () => {
       id="security"
       className="relative py-32 px-6 bg-gradient-to-b from-teal-50 to-white overflow-hidden"
     >
-      <div className="absolute inset-0">
+      <div className="absolute inset-0 pointer-events-none">
         <div
           className="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 w-[800px] h-[800px] bg-gradient-to-r from-teal-200 to-blue-200 rounded-full blur-[150px] opacity-30 animate-pulse"
           style={{ animationDuration: "6s" }}

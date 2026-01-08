@@ -24,6 +24,7 @@ import {
   Search,
 } from "lucide-react";
 import { useNavigate } from "react-router-dom";
+import Footer from "../components/Footer";
 
 const AllFeatures = () => {
   const navigate = useNavigate();
@@ -464,6 +465,9 @@ const AllFeatures = () => {
             </div>
           </div>
         </div>
+      </div>
+      <div className="max-w-7xl mx-auto px-6 pb-12">
+        <Footer />
       </div>
     </div>
   );
