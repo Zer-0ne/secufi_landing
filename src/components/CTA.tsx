@@ -1,11 +1,15 @@
 import { ArrowRight, Shield, CheckCircle, Zap } from "lucide-react";
 import { useNavigate } from "react-router-dom";
+import Footer from "./Footer";
 
 const CTA = () => {
   const navigate = useNavigate();
 
   return (
-    <section className="relative py-32 px-6 bg-gradient-to-b from-teal-50 to-white overflow-hidden">
+    <section
+      id="security"
+      className="relative py-32 px-6 bg-gradient-to-b from-teal-50 to-white overflow-hidden"
+    >
       <div className="absolute inset-0">
         <div
           className="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 w-[800px] h-[800px] bg-gradient-to-r from-teal-200 to-blue-200 rounded-full blur-[150px] opacity-30 animate-pulse"
@@ -93,41 +97,7 @@ const CTA = () => {
           </div>
         </div>
 
-        <footer className="mt-20 pt-12 border-t border-gray-200">
-          <div className="flex flex-col md:flex-row justify-between items-center gap-8">
-            <div className="flex items-center gap-3">
-              <div className="w-10 h-10 rounded-lg bg-gradient-to-br from-teal-500 to-blue-500 flex items-center justify-center shadow-md">
-                <Shield className="w-6 h-6 text-white" />
-              </div>
-              <span className="text-2xl font-bold text-gray-900">SecuFi</span>
-            </div>
-
-            <div className="flex flex-wrap justify-center gap-8 text-sm text-gray-600">
-              <a href="#" className="hover:text-teal-600 transition-colors">
-                About
-              </a>
-              <a href="#" className="hover:text-teal-600 transition-colors">
-                Features
-              </a>
-              <a href="#" className="hover:text-teal-600 transition-colors">
-                For Advisors
-              </a>
-              <a href="#" className="hover:text-teal-600 transition-colors">
-                Security
-              </a>
-              <a href="#" className="hover:text-teal-600 transition-colors">
-                Privacy
-              </a>
-              <a href="#" className="hover:text-teal-600 transition-colors">
-                Contact
-              </a>
-            </div>
-
-            <div className="text-sm text-gray-600">
-              © 2025 SecuFi. All rights reserved.
-            </div>
-          </div>
-        </footer>
+        <Footer />
       </div>
     </section>
   );

@@ -33,7 +33,10 @@ const Hero = () => {
   }, []);
 
   return (
-    <div className="relative min-h-screen flex items-center justify-center overflow-hidden bg-gradient-to-br from-blue-50 via-teal-50 to-emerald-50">
+    <section
+      id="about"
+      className="relative min-h-screen flex items-center justify-center overflow-hidden bg-gradient-to-br from-blue-50 via-teal-50 to-emerald-50"
+    >
       {/* Animated grid pattern */}
       <div className="absolute inset-0 opacity-[0.03]">
         <div
@@ -371,7 +374,7 @@ const Hero = () => {
           animation: rotating-shape 20s linear infinite;
         }
       `}</style>
-    </div>
+    </section>
   );
 };
 

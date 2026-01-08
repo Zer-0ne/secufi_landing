@@ -1,5 +1,5 @@
 import { useState } from "react";
-import { useNavigate } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import {
   Eye,
   TrendingUp,
@@ -369,8 +369,21 @@ const AdvisorSignup = () => {
                     </button>
 
                     <p className="text-center text-xs text-gray-500">
-                      By signing up, you agree to our Terms of Service and
-                      Privacy Policy
+                      By signing up, you agree to our{" "}
+                      <Link
+                        to="/terms-of-service"
+                        className="text-teal-600 font-semibold hover:text-teal-700"
+                      >
+                        Terms of Service
+                      </Link>{" "}
+                      and{" "}
+                      <Link
+                        to="/privacy-policy"
+                        className="text-teal-600 font-semibold hover:text-teal-700"
+                      >
+                        Privacy Policy
+                      </Link>
+                      .
                     </p>
                   </form>
                 </>
