@@ -28,14 +28,18 @@ const About = () => {
           </div>
 
           <h1 className="mt-6 text-4xl md:text-5xl font-bold text-gray-900">
-            Built to make families claim-ready and confident.
+            Clear, secure readiness for Indian families and advisors.
           </h1>
           <p className="mt-6 text-lg text-gray-600 max-w-3xl leading-relaxed">
-            SecuFi brings together assets, nominees, KYC readiness, and key
-            documents in one secure place so families can act quickly when it
-            matters most. We combine clear guidance with automation to ensure
-            important details are never lost or overlooked.
+            SecuFi helps households and advisors organize assets, nominees, and
+            compliance tasks in one secure place so critical documents and
+            instructions are always accessible.
           </p>
+          <div className="mt-8 grid gap-3 text-gray-600">
+            <p className="font-semibold text-gray-900">Who it’s for</p>
+            <p>• Indian families who want a reliable digital vault and guidance.</p>
+            <p>• Advisors who need consent-based visibility for client readiness.</p>
+          </div>
 
           <div className="mt-12 grid md:grid-cols-2 gap-8">
             <div className="bg-white/90 border border-gray-200 rounded-3xl p-8 shadow-lg hover:shadow-2xl transition-all duration-300">

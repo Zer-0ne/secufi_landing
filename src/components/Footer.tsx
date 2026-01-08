@@ -5,7 +5,7 @@ const Footer = () => {
   return (
     <footer className="mt-20 pt-12 border-t border-gray-200">
       <div className="flex flex-col md:flex-row justify-between items-center gap-8">
-        <Link to="/" className="flex items-center gap-3">
+        <Link to="/" className="flex items-center gap-3 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-teal-500 focus-visible:ring-offset-2 focus-visible:ring-offset-white rounded-lg">
           <div className="w-10 h-10 rounded-lg bg-gradient-to-br from-teal-500 to-blue-500 flex items-center justify-center shadow-md">
             <Shield className="w-6 h-6 text-white" />
           </div>
@@ -13,34 +13,34 @@ const Footer = () => {
         </Link>
 
         <div className="flex flex-wrap justify-center gap-8 text-sm text-gray-600">
-          <Link to="/about" className="hover:text-teal-600 transition-colors">
+          <Link to="/about" className="transition-colors hover:text-teal-600 hover:underline underline-offset-4 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-teal-500 focus-visible:ring-offset-2 focus-visible:ring-offset-white rounded">
             About
           </Link>
           <Link
             to="/features"
-            className="hover:text-teal-600 transition-colors"
+            className="transition-colors hover:text-teal-600 hover:underline underline-offset-4 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-teal-500 focus-visible:ring-offset-2 focus-visible:ring-offset-white rounded"
           >
             Features
           </Link>
           <Link
-            to="/for-advisors"
-            className="hover:text-teal-600 transition-colors"
+            to="/advisors"
+            className="transition-colors hover:text-teal-600 hover:underline underline-offset-4 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-teal-500 focus-visible:ring-offset-2 focus-visible:ring-offset-white rounded"
           >
             For Advisors
           </Link>
           <Link
             to="/security"
-            className="hover:text-teal-600 transition-colors"
+            className="transition-colors hover:text-teal-600 hover:underline underline-offset-4 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-teal-500 focus-visible:ring-offset-2 focus-visible:ring-offset-white rounded"
           >
             Security
           </Link>
-          <Link to="/privacy-policy" className="hover:text-teal-600 transition-colors">
-            Privacy Policy
+          <Link to="/legal#privacy" className="transition-colors hover:text-teal-600 hover:underline underline-offset-4 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-teal-500 focus-visible:ring-offset-2 focus-visible:ring-offset-white rounded">
+            Privacy
           </Link>
-          <Link to="/terms-of-service" className="hover:text-teal-600 transition-colors">
-            Terms of Service
+          <Link to="/legal#terms" className="transition-colors hover:text-teal-600 hover:underline underline-offset-4 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-teal-500 focus-visible:ring-offset-2 focus-visible:ring-offset-white rounded">
+            Terms
           </Link>
-          <Link to="/contact" className="hover:text-teal-600 transition-colors">
+          <Link to="/contact" className="transition-colors hover:text-teal-600 hover:underline underline-offset-4 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-teal-500 focus-visible:ring-offset-2 focus-visible:ring-offset-white rounded">
             Contact
           </Link>
         </div>

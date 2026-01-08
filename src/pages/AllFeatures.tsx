@@ -366,6 +366,22 @@ const AllFeatures = () => {
             </p>
           </div>
 
+          <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-6 mb-14">
+            {[
+              "Asset discovery",
+              "Digital vault",
+              "Claim-readiness score",
+              "Nominee & document hygiene",
+            ].map((item) => (
+              <div
+                key={item}
+                className="bg-white/90 border border-gray-200 rounded-2xl p-5 text-center text-sm font-semibold text-gray-700 shadow-sm hover:shadow-lg transition-all"
+              >
+                {item}
+              </div>
+            ))}
+          </div>
+
           <div className="flex flex-wrap justify-center gap-3 mb-12">
             {categories.map((cat) => (
               <button

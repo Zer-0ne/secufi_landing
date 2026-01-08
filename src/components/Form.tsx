@@ -6,6 +6,8 @@ interface FormData {
   message: string;
 }
 
+import Footer from "./Footer";
+
 export default function ContactForm() {
   const [form, setForm] = useState<FormData>({
     name: "",
@@ -45,14 +47,34 @@ export default function ContactForm() {
   };
 
   return (
-    <div className="min-h-screen flex items-center justify-center px-4 py-10 bg-gradient-to-br from-[#16223e] via-[#232e4d] to-[#1a2540]">
-      <div className={`w-full max-w-xl bg-white shadow-lg rounded-xl p-8  transition-all duration-1000 ${
+    <div className="min-h-screen flex flex-col items-center justify-center px-4 py-10 bg-gradient-to-br from-[#16223e] via-[#232e4d] to-[#1a2540]">
+      <div className={`w-full max-w-xl bg-white shadow-lg rounded-xl p-8 transition-all duration-1000 ${
               isVisible ? 'opacity-100 translate-x-0' : 'opacity-0 -translate-x-10'
             }`}>
 
         <h2 className="text-2xl font-semibold bg-gradient-to-r from-[#10d8c4] via-[#43e97b] to-[#ffab40] bg-clip-text text-transparent bg-[length:200%_auto] animate-gradient pb-4 text-center">
           Contact Us
         </h2>
+        <div className="mb-6 space-y-2 text-sm text-gray-600 text-center">
+          <p>
+            Support:{" "}
+            <a
+              href="mailto:support@secufi.in"
+              className="text-teal-600 font-semibold hover:underline underline-offset-4"
+            >
+              support@secufi.in
+            </a>
+          </p>
+          <p>
+            Business:{" "}
+            <a
+              href="mailto:business@secufi.in"
+              className="text-teal-600 font-semibold hover:underline underline-offset-4"
+            >
+              business@secufi.in
+            </a>
+          </p>
+        </div>
 
         <form onSubmit={handleSubmit} className="space-y-4">
 
@@ -107,6 +129,9 @@ export default function ContactForm() {
           </button>
 
         </form>
+      </div>
+      <div className="w-full max-w-5xl mt-10 bg-white/95 rounded-2xl px-6 pb-6 pt-2">
+        <Footer />
       </div>
     </div>
   );
