@@ -449,7 +449,7 @@ const AllFeatures = () => {
 
               <div className="flex flex-col sm:flex-row gap-4 justify-center">
                 <a
-                  href="https://secufi-client.vercel.app/login"
+                  href="https://my.secufi.in/login"
                   className="group relative px-10 py-5 bg-gradient-to-r from-teal-500 to-emerald-500 rounded-2xl font-semibold text-lg text-white overflow-hidden transition-all duration-300 transform hover:scale-105 hover:shadow-2xl flex items-center justify-center gap-2"
                 >
                   <span className="relative z-10">Start Free Trial</span>

@@ -1,4 +1,4 @@
-import { useState,useEffect } from "react";
+import { useState, useEffect } from "react";
 
 interface FormData {
   name: string;
@@ -15,14 +15,14 @@ export default function ContactForm() {
     message: "",
   });
 
-    const [isVisible, setIsVisible] = useState(false);
-  
+  const [isVisible, setIsVisible] = useState(false);
+
   // 1. State to control animation visibility
 
   useEffect(() => {
     // Client-side execution
     setIsVisible(true);
-    
+
 
   }, []);
 
@@ -40,17 +40,16 @@ export default function ContactForm() {
     console.log(form);
     alert("Message sent!");
     setForm({
-    name: "",
-    email: "",
-    message: "",
-  })
+      name: "",
+      email: "",
+      message: "",
+    })
   };
 
   return (
     <div className="min-h-screen flex flex-col items-center justify-center px-4 py-10 bg-gradient-to-br from-[#16223e] via-[#232e4d] to-[#1a2540]">
-      <div className={`w-full max-w-xl bg-white shadow-lg rounded-xl p-8 transition-all duration-1000 ${
-              isVisible ? 'opacity-100 translate-x-0' : 'opacity-0 -translate-x-10'
-            }`}>
+      <div className={`w-full max-w-xl bg-white shadow-lg rounded-xl p-8 transition-all duration-1000 ${isVisible ? 'opacity-100 translate-x-0' : 'opacity-0 -translate-x-10'
+        }`}>
 
         <h2 className="text-2xl font-semibold bg-gradient-to-r from-[#10d8c4] via-[#43e97b] to-[#ffab40] bg-clip-text text-transparent bg-[length:200%_auto] animate-gradient pb-4 text-center">
           Contact Us
@@ -59,19 +58,19 @@ export default function ContactForm() {
           <p>
             Support:{" "}
             <a
-              href="mailto:support@secufi.in"
+              href="mailto:info@secufi.in"
               className="text-teal-600 font-semibold hover:underline underline-offset-4"
             >
-              support@secufi.in
+              info@secufi.in
             </a>
           </p>
           <p>
             Business:{" "}
             <a
-              href="mailto:business@secufi.in"
+              href="mailto:info@secufi.in"
               className="text-teal-600 font-semibold hover:underline underline-offset-4"
             >
-              business@secufi.in
+              info@secufi.in
             </a>
           </p>
         </div>

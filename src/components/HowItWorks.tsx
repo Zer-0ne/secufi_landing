@@ -448,7 +448,7 @@ const HowItWorks = () => {
 
         <div className="text-center mt-20">
           <a
-            href="https://secufi-client.vercel.app/login"
+            href="https://my.secufi.in/login"
             className="group px-10 py-5 bg-gradient-to-r from-teal-500 to-emerald-500 rounded-2xl font-semibold text-lg text-white transition-all duration-300 transform hover:scale-105 shadow-xl hover:shadow-2xl inline-flex items-center gap-3"
           >
             Get Started Now

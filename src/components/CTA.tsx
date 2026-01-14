@@ -45,7 +45,7 @@ const CTA = () => {
 
             <div className="flex flex-col sm:flex-row gap-4 justify-center mb-12">
               <a
-                href="https://secufi-client.vercel.app/login"
+                href="https://my.secufi.in/login"
                 className="group px-10 py-5 bg-gradient-to-r from-teal-600 to-blue-600 text-white rounded-full font-semibold text-lg hover:shadow-xl transition-all duration-300 transform hover:scale-105 inline-flex items-center justify-center gap-3"
               >
                 Start Free Trial
