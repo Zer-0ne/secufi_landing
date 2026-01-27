@@ -70,98 +70,104 @@ const Legal = () => {
 
         <section id="privacy" className="scroll-mt-24">
           <h2 className="text-3xl font-bold text-gray-900">
-            Privacy Policy (Google OAuth & Google APIs Disclosure)
+            Privacy Policy
           </h2>
-          <p className="text-sm text-gray-500 mt-2">Last updated: 07 Jan 2026</p>
+          <p className="text-sm text-gray-500 mt-2">Last updated: 23 Jan 2026</p>
 
           <div className="mt-6 space-y-6 text-lg text-gray-700 leading-relaxed">
             <p>
-              This Privacy Policy explains how SecuFi collects, uses, discloses,
-              and protects personal information when you access or use the SecuFi
-              website, applications, and related services (collectively, the
-              "Services"). It also provides specific disclosures about our use of
-              Google OAuth and Google APIs.
+              This Privacy Policy explains how SecuFi ("SecuFi", "we", "us", or "our") collects, uses, discloses, and protects personal information when you access or use the SecuFi website, applications, and related services (collectively, the "Services"). This policy also provides specific disclosures regarding our use of Google OAuth and Google APIs, including the Gmail API.
             </p>
 
             <h3 className="text-2xl font-bold text-gray-900">
               Information We Collect
             </h3>
+            <p>We collect the following categories of information:</p>
             <ul className="list-disc pl-6 space-y-3">
               <li>
-                Account information such as name, email address, and phone number.
+                <strong>Account Information:</strong> Name, email address, and other information you provide when creating or managing your account.
               </li>
               <li>
-                Device, log, and usage information to operate and secure the
-                Services.
+                <strong>Usage and Device Information:</strong> Log data, device information, and usage data required to operate, secure, and improve the Services.
               </li>
               <li>
-                Consent-based access to financial documents or communications
-                (e.g., emails or SMS) only when you explicitly authorize it.
+                <strong>Gmail Data (Consent-Based):</strong> With your explicit consent, SecuFi accesses limited Gmail data using the Gmail API solely for the purposes described below.
               </li>
             </ul>
 
             <h3 className="text-2xl font-bold text-gray-900">How We Use Information</h3>
+            <p>We use personal information to:</p>
             <ul className="list-disc pl-6 space-y-3">
-              <li>Provide and improve the Services.</li>
-              <li>Detect, prevent, and respond to security issues.</li>
-              <li>Comply with legal and regulatory obligations.</li>
+              <li>Provide, operate, and improve the Services.</li>
+              <li>Build and maintain a user's financial asset vault.</li>
+              <li>Detect, prevent, and respond to security issues and abuse.</li>
+              <li>Comply with applicable legal and regulatory obligations.</li>
             </ul>
 
             <h3 className="text-2xl font-bold text-gray-900">
-              Google OAuth & Google APIs Disclosure
+              Google OAuth & Gmail API Disclosure
             </h3>
             <p>
-              SecuFi’s use and transfer of information received from Google APIs
-              to any other app will adhere to the Google API Services User Data
-              Policy, including the Limited Use requirements. We only request the
-              minimum scopes necessary to provide the Services, and we do not use
-              Google user data for advertising.
+              SecuFi's use and transfer of information received from Google APIs complies with the Google API Services User Data Policy, including the Limited Use requirements.
             </p>
+            
+            <h4 className="text-xl font-bold text-gray-900">Use of Gmail API</h4>
             <ul className="list-disc pl-6 space-y-3">
-              <li>
-                Google OAuth access is used only after you grant explicit consent.
-              </li>
-              <li>
-                We do not sell Google user data to third parties or use it for
-                marketing purposes.
-              </li>
-              <li>
-                Access to Google user data can be revoked at any time in your
-                Google account settings.
-              </li>
+              <li>SecuFi uses the Gmail API with read-only access (gmail.readonly) only after you grant explicit permission.</li>
+              <li>Gmail access is used solely to identify financial transaction emails such as investment confirmations, insurance policies, and bank statements, in order to build your financial asset vault.</li>
+              <li>Access is user-initiated and time-bounded. By default, SecuFi retrieves emails from the most recent 30 days. You may explicitly extend this window up to 90 days in increments of 30 days.</li>
             </ul>
+
+            <h4 className="text-xl font-bold text-gray-900">Data Minimization</h4>
+            <ul className="list-disc pl-6 space-y-3">
+              <li>SecuFi identifies financial emails using limited metadata such as subject lines and message snippets.</li>
+              <li>Only emails identified as financial are processed and stored.</li>
+              <li>All non-financial emails are discarded immediately and are not stored or retained.</li>
+            </ul>
+
+            <h4 className="text-xl font-bold text-gray-900">Restrictions on Use</h4>
+            <ul className="list-disc pl-6 space-y-3">
+              <li>SecuFi does not modify, delete, send, or monitor emails.</li>
+              <li>SecuFi does not use Gmail data for advertising, marketing, or profiling.</li>
+              <li>SecuFi does not sell Google user data or share it with third parties for advertising purposes.</li>
+            </ul>
+
+            <h4 className="text-xl font-bold text-gray-900">Revocation of Access</h4>
+            <p>You may revoke SecuFi's access to your Google account at any time via your Google Account settings or by disconnecting your Google account within the SecuFi application.</p>
 
             <h3 className="text-2xl font-bold text-gray-900">Data Sharing</h3>
             <p>
-              We share information with trusted service providers that help us
-              operate the Services, subject to confidentiality and security
-              obligations. We may also disclose information if required by law or
-              to protect SecuFi, our users, or the public.
+              We may share information with trusted service providers that assist in operating the Services, subject to contractual confidentiality and security obligations. We may also disclose information if required by law or to protect the rights, safety, or security of SecuFi, our users, or the public.
             </p>
 
-            <h3 className="text-2xl font-bold text-gray-900">Data Retention</h3>
+            <h3 className="text-2xl font-bold text-gray-900">Data Retention and Deletion</h3>
             <p>
-              We retain personal information only as long as necessary to provide
-              the Services and meet legal obligations. You may request deletion of
-              your data by contacting us.
+              We retain personal information only for as long as necessary to provide the Services and meet legal or regulatory requirements.
+              You may delete your SecuFi account at any time from within the application. Upon account deletion, all associated personal data, including Gmail-derived data, is permanently deleted from our systems.
             </p>
 
             <h3 className="text-2xl font-bold text-gray-900">Security</h3>
             <p>
-              We maintain technical and organizational safeguards designed to
-              protect your information. No system is completely secure, and we
-              cannot guarantee absolute security.
+              We implement reasonable technical and organizational safeguards designed to protect personal information.
+            </p>
+            
+            <h4 className="text-xl font-bold text-gray-900">Data Encryption</h4>
+            <p>
+              SecuFi uses industry-standard encryption and secure transmission protocols to protect personal information, including Gmail-derived data, both in transit and at rest. Access to such data is restricted to authorized systems and personnel and protected using appropriate technical and organizational controls.
+              While we take security seriously, no system can be guaranteed to be completely secure.
             </p>
 
             <h3 className="text-2xl font-bold text-gray-900">Your Choices</h3>
+            <p>You have the right to:</p>
             <ul className="list-disc pl-6 space-y-3">
-              <li>Access, correct, or delete your information.</li>
-              <li>Manage consent-based access to data sources.</li>
+              <li>Access, correct, or delete your personal information.</li>
+              <li>Manage and revoke consent-based access to connected data sources such as Gmail.</li>
+              <li>Delete your account and associated data from within the application.</li>
               <li>Opt out of non-essential communications.</li>
             </ul>
 
             <h3 className="text-2xl font-bold text-gray-900">Contact Us</h3>
-            <p>If you have questions about this Privacy Policy, please contact us.</p>
+            <p>If you have questions about this Privacy Policy or our data practices, please contact us at info@secufi.in.</p>
           </div>
         </section>
 
@@ -169,86 +175,53 @@ const Legal = () => {
 
         <section id="terms" className="scroll-mt-24">
           <h2 className="text-3xl font-bold text-gray-900">
-            Terms of Service (for Google OAuth Verification)
+            Terms of Service (Google OAuth Verification)
           </h2>
-          <p className="text-sm text-gray-500 mt-2">Last updated: 07 Jan 2026</p>
+          <p className="text-sm text-gray-500 mt-2">Last updated: 23 Jan 2026</p>
 
           <div className="mt-6 space-y-6 text-lg text-gray-700 leading-relaxed">
             <p>
-              These Terms of Service ("Terms") govern your access to and use of
-              the SecuFi website, applications, and related services
-              (collectively, the "Services"). By accessing or using the Services,
-              you agree to these Terms.
+              These Terms of Service ("Terms") govern your access to and use of the SecuFi website, applications, and related services (collectively, the "Services"). By accessing or using the Services, you agree to these Terms.
             </p>
 
             <h3 className="text-2xl font-bold text-gray-900">Eligibility</h3>
             <p>
-              You must be legally capable of entering into these Terms and comply
-              with applicable laws and regulations when using the Services.
+              You must be legally capable of entering into these Terms and must comply with applicable laws and regulations when using the Services.
             </p>
 
             <h3 className="text-2xl font-bold text-gray-900">Account Access</h3>
-            <ul className="list-disc pl-6 space-y-3">
-              <li>
-                You are responsible for maintaining the confidentiality of your
-                account credentials.
-              </li>
-              <li>
-                You agree to provide accurate information and keep your account
-                details up to date.
-              </li>
-            </ul>
+            <p>You are responsible for maintaining the confidentiality of your account credentials and for all activities that occur under your account. You agree to provide accurate and up-to-date information.</p>
 
             <h3 className="text-2xl font-bold text-gray-900">Acceptable Use</h3>
+            <p>You agree to:</p>
             <ul className="list-disc pl-6 space-y-3">
               <li>Use the Services only for lawful purposes.</li>
-              <li>Do not attempt to interfere with or disrupt the Services.</li>
-              <li>
-                Do not misuse or attempt to access data without proper
-                authorization.
-              </li>
+              <li>Not interfere with or disrupt the operation or security of the Services.</li>
+              <li>Not attempt to access data without proper authorization.</li>
             </ul>
 
-            <h3 className="text-2xl font-bold text-gray-900">
-              Google OAuth Verification
-            </h3>
+            <h3 className="text-2xl font-bold text-gray-900">Google OAuth</h3>
             <p>
-              When you connect a Google account, you authorize SecuFi to access
-              specific Google data only to provide the Services you request. You
-              may revoke access at any time in your Google account settings.
+              When you connect a Google account, you authorize SecuFi to access specific Google data strictly in accordance with your consent and applicable Google API policies. You may revoke this access at any time via your Google Account settings or within the SecuFi application.
             </p>
 
             <h3 className="text-2xl font-bold text-gray-900">Intellectual Property</h3>
             <p>
-              All content, trademarks, and intellectual property in the Services
-              are owned by SecuFi or its licensors. You may not copy, modify, or
-              distribute any part of the Services without permission.
+              All content, trademarks, and intellectual property within the Services are owned by SecuFi or its licensors. You may not copy, modify, or distribute any portion of the Services without authorization.
             </p>
 
             <h3 className="text-2xl font-bold text-gray-900">Termination</h3>
             <p>
-              We may suspend or terminate your access to the Services if you
-              violate these Terms or pose a security risk. You may discontinue
-              use of the Services at any time.
+              We may suspend or terminate access to the Services if you violate these Terms or pose a security or legal risk. You may discontinue use of the Services at any time by deleting your account.
             </p>
 
-            <h3 className="text-2xl font-bold text-gray-900">Disclaimers</h3>
+            <h3 className="text-2xl font-bold text-gray-900">Disclaimers and Limitation of Liability</h3>
             <p>
-              The Services are provided "as is" without warranties of any kind,
-              express or implied. SecuFi disclaims all warranties to the maximum
-              extent permitted by law.
-            </p>
-
-            <h3 className="text-2xl font-bold text-gray-900">
-              Limitation of Liability
-            </h3>
-            <p>
-              SecuFi will not be liable for any indirect, incidental, special, or
-              consequential damages arising from your use of the Services.
+              The Services are provided on an "as is" basis without warranties of any kind. To the maximum extent permitted by law, SecuFi shall not be liable for indirect, incidental, or consequential damages arising from use of the Services.
             </p>
 
             <h3 className="text-2xl font-bold text-gray-900">Contact Us</h3>
-            <p>If you have questions about these Terms, please contact us.</p>
+            <p>If you have questions about these Terms, please contact us at info@secufi.in.</p>
           </div>
         </section>
 
